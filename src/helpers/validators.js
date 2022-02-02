@@ -1,5 +1,5 @@
 import React from 'react';
-import validator from 'validator';
+import { PASSWORD_RANGE, USERNAME_RANGE } from '../data/const';
 
 const errMessage = message => {
   return (
@@ -16,19 +16,30 @@ const isRequired = value => {
 };
 
 const isEmail = value => {
-  if (!validator.isEmail(value)) {
+  const validMail = String(value)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+  if (!validMail) {
     return errMessage('This is not a valid email!');
   }
 };
 
-const lengthMinMax = (value, type, range) => {
-  if (value.length < range.min || value.length > range.max) {
-    return errMessage(`The ${type} must be between ${range.min} and ${range.max} characters!`);
+const isPasswordLength = (value) => {
+  if (value.length < PASSWORD_RANGE.min || value.length > PASSWORD_RANGE.max) {
+    return errMessage(`The password must be between ${PASSWORD_RANGE.min} and ${PASSWORD_RANGE.max} characters!`);
+  }
+};
+
+const isUsernameLength = (value) => {
+  if (value.length < USERNAME_RANGE.min || value.length > USERNAME_RANGE.max) {
+    return errMessage(`The username must be between ${USERNAME_RANGE.min} and ${USERNAME_RANGE.max} characters!`);
   }
 };
 
 export {
   isRequired,
   isEmail,
-  lengthMinMax,
+  isPasswordLength,
+  isUsernameLength
 };

@@ -12,6 +12,7 @@ import Statistic from '../Statistic/Statistic';
 import AudioCallGame from '../AudioCallGame/AudioCallGame';
 import SprintGame from '../SprintGame/SprintGame';
 import Authorization from '../Authorization/Authorization';
+import Register from '../Authorization/Register';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/audiocall" element={<AudioCallGame />} />
         <Route path="/sprint" element={<SprintGame />} />
         <Route path="/authorization" element={<Authorization />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </BrowserRouter>
