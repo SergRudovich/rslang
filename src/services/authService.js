@@ -1,7 +1,7 @@
 import { API_URL } from "../data/const";
 
-const createUser = async user => {
-  const rawResponse = await fetch(`${API_URL}/users`, {
+const createUser = user => {
+  return fetch(`${API_URL}/users`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -9,9 +9,6 @@ const createUser = async user => {
     },
     body: JSON.stringify(user)
   });
-  const content = await rawResponse.json();
-
-  console.log(content);
 };
 
 const loginUser = async user => {
@@ -25,7 +22,6 @@ const loginUser = async user => {
   });
   const content = await rawResponse.json();
   localStorage.setItem("user", content);
-  console.log(content);
 };
 
 const logout = () => {

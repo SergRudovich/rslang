@@ -1,11 +1,13 @@
 import './authorization.css';
 import React, { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail, isPasswordLength, isRequired, isUsernameLength } from '../../helpers/validators';
 import avatar from '../../assets/img/auth_avatar.png';
+import { register } from '../../store/authActions';
 
 function Register() {
   const form = useRef();
@@ -15,8 +17,9 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const message = '';
+  const [successful, setSuccessful] = useState(false);
+  const [message, setMessage] = useState('');
+  const dispatch = useDispatch();
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -24,6 +27,7 @@ function Register() {
   };
 
   const onChangeEmail = (e) => {
+    setMessage('');
     const email = e.target.value;
     setEmail(email);
   };
@@ -33,17 +37,27 @@ function Register() {
     setPassword(password);
   };
 
+  const setErrMessage = (message) => {
+    setMessage(message);
+    setLoading(false);
+  }
+
   const handleLogin = (e) => {
     e.preventDefault();
-
-    setLoading(true);
-
     form.current.validateAll();
-
     if (checkBtn.current.context._errors.length === 0) {
-      console.log('Ok');
-    } else {
-      setLoading(false);
+      setLoading(true);
+      dispatch(register({ username, email, password }))
+        .then((message) => {
+          setSuccessful(true);
+          setErrMessage(message);
+        })
+        .catch((err) => {
+          err.then((message) => {
+            setSuccessful(false);
+            setErrMessage(message);
+          })
+        });
     }
   };
 
@@ -110,7 +124,7 @@ function Register() {
 
             {message && (
               <div className="form-group">
-                <div className="alert alert-danger" role="alert">
+                <div className={successful ? "alert alert-success" : "alert alert-danger"} role="alert">
                   {message}
                 </div>
               </div>
