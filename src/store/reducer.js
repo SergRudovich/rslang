@@ -1,14 +1,30 @@
 import * as actions from './actionTypes';
 
-const appReducer = (state = initialState, action: IAction) => {
-  switch (action.type) {
-    case SET_WORDS:
+const loggedUser = JSON.parse(localStorage.getItem("user"));
+
+const initialState = {
+  words: [],
+  user: loggedUser ? loggedUser : null,
+};
+
+const appReducer = (state = initialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case actions.LOGIN_SUCCESS:
       return {
         ...state,
-        words: action.payload,
+        user: payload,
       };
-
-
+    case actions.LOGOUT:
+      return {
+        ...state,
+        user: payload,
+      };
+    case actions.SET_WORDS:
+      return {
+        ...state,
+        words: payload,
+      };
     default:
       return state;
   }
