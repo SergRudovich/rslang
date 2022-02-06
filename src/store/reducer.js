@@ -5,6 +5,9 @@ const loggedUser = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   words: [],
   user: loggedUser ? loggedUser : null,
+  currentPage: 0,
+  category: 0,
+  paginationCount: 30,
 };
 
 const appReducer = (state = initialState, action) => {
