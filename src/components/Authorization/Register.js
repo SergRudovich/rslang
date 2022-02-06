@@ -1,13 +1,14 @@
 import './authorization.css';
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail, isPasswordLength, isRequired, isUsernameLength } from '../../helpers/validators';
 import avatar from '../../assets/img/auth_avatar.png';
-import { register } from '../../store/authActions';
+import {loginUser, createUser} from '../../services/authService';
+import { LOGIN_SUCCESS } from '../../store/actionTypes';
 
 function Register() {
   const form = useRef();
@@ -20,6 +21,7 @@ function Register() {
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -47,10 +49,25 @@ function Register() {
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
       setLoading(true);
-      dispatch(register({ username, email, password }))
+      dispatch(createUser({ username, email, password }))
         .then((message) => {
           setSuccessful(true);
           setErrMessage(message);
+          dispatch(loginUser({ email, password }))
+          .then((loggedUser) => {
+            localStorage.setItem("user", JSON.stringify(loggedUser));
+            dispatch({
+              type: LOGIN_SUCCESS,
+              payload: loggedUser,
+            });
+            return navigate('/');
+          })
+          .catch((err) => {
+            err.then(() => {
+              setMessage('Incorrect e-mail or password');
+              setLoading(false);
+            })
+          });
         })
         .catch((err) => {
           err.then((message) => {

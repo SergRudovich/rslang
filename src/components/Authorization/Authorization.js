@@ -1,43 +1,60 @@
 import './authorization.css';
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail, isPasswordLength, isRequired } from '../../helpers/validators';
 import avatar from '../../assets/img/auth_avatar.png';
+import {loginUser} from '../../services/authService';
+import { LOGIN_SUCCESS } from '../../store/actionTypes';
 
-function Authorization() {
+function Authorization(props) {
   const form = useRef();
   const checkBtn = useRef();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
-  const message = '';
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const onChangeEmail = (e) => {
+    setMessage('');
     const email = e.target.value;
     setEmail(email);
   };
 
   const onChangePassword = (e) => {
+    setMessage('');
     const password = e.target.value;
     setPassword(password);
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    setLoading(true);
-
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      console.log('Ok');
-    } else {
-      setLoading(false);
+      setLoading(true);
+      dispatch(loginUser({ email, password }))
+        .then((loggedUser) => {
+          localStorage.setItem("user", JSON.stringify(loggedUser));
+          dispatch({
+            type: LOGIN_SUCCESS,
+            payload: loggedUser,
+          });
+          return navigate('/');
+        })
+        .catch((err) => {
+          err.then(() => {
+            setMessage('Incorrect e-mail or password');
+            setLoading(false);
+          })
+        });
     }
   };
 

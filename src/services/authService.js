@@ -1,7 +1,8 @@
 import { API_URL } from "../data/const";
+import { LOGOUT } from '../store/actionTypes';
 
-const createUser = user => {
-  return fetch(`${API_URL}/users`, {
+const createUser = user => async () =>  {
+  const responce = await fetch(`${API_URL}/users`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -9,10 +10,15 @@ const createUser = user => {
     },
     body: JSON.stringify(user)
   });
+  if (responce.ok) {
+    return Promise.resolve('Регистрация прошла успешно. Выполняется вход.');
+  } else {
+    return Promise.reject(responce.text());
+  }
 };
 
-const loginUser = async user => {
-  const rawResponse = await fetch(`${API_URL}/signin`, {
+const loginUser = user => async () => {
+  const responce = await fetch(`${API_URL}/signin`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -20,12 +26,22 @@ const loginUser = async user => {
     },
     body: JSON.stringify(user)
   });
-  const content = await rawResponse.json();
-  localStorage.setItem("user", content);
+  if (responce.ok) {
+    const loggedUser = await responce.json();
+    loggedUser.email = user.email;
+    return Promise.resolve(loggedUser);
+  } else {
+    return Promise.reject(responce.text());
+  }
 };
 
-const logout = () => {
+const logout = (dispatch) => {
   localStorage.removeItem("user");
+  dispatch({
+    type: LOGOUT,
+    payload: null,
+  });
+  document.location.reload();
 };
 
 export {

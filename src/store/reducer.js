@@ -10,6 +10,16 @@ const initialState = {
 const appReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case actions.LOGIN_SUCCESS:
+      return {
+        ...state,
+        user: payload,
+      };
+    case actions.LOGOUT:
+      return {
+        ...state,
+        user: payload,
+      };
     case actions.SET_WORDS:
       return {
         ...state,
