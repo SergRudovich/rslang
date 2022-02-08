@@ -19,7 +19,6 @@ function SelectWordCard(word) {
         {word.wordTranslate}
       </div>
     </div>
-
   );
 }
 

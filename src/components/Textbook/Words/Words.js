@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import SelectWordCard from '../SelectWordCard/SelectWordCard';
 import { useDispatch, useSelector } from "react-redux";
 import { getWords } from '../../../services/wordsService';
+import WordCard from '../WordCard/WordCard';
 
 function Words() {
 
@@ -10,7 +11,8 @@ function Words() {
   const dispatch = useDispatch();
   const words = useSelector(state => state.words);
   const wordsCategory = useSelector(state => state.wordsCategory);
-  const [selectedWord, setSelectedWord] = useState(0);
+  const [selectedWordId, setSelectedWordId] = useState(0);
+  const [selectedWord, setSelectedWord] = useState({});
 
   useEffect(() => {
     dispatch(getWords('0', '0'));
@@ -18,22 +20,27 @@ function Words() {
 
   useEffect(() => {
     dispatch(getWords(wordsCategory, '0'));
-    setSelectedWord(0);
+    setSelectedWordId(0);
   }, [dispatch, wordsCategory]);
 
+  useEffect(() => {
+    setSelectedWord(words[0]);
+  }, [dispatch, words]);
+
   const handleSelectWord = (id) => {
-    setSelectedWord(id);
+    setSelectedWordId(id);
+    setSelectedWord(words[id]);
   }
 
   return (
-    <div>
+    <div className='words-wrapper'>
       <div className='word-select-wrapper'>
         {words.map((word, index) =>
           <SelectWordCard
             key={word.id}
             id={index}
             word={word.word}
-            isActive={(index === selectedWord) ? true : false}
+            isActive={(index === selectedWordId) ? true : false}
             wordTranslate={word.wordTranslate}
             categoryColor={categoryColor[wordsCategory]}
             handleSelectWord={handleSelectWord}
@@ -41,7 +48,9 @@ function Words() {
         )}
       </div>
       <div className='selected-word-wrapper'>
-
+        <WordCard
+          word={selectedWord}
+        />
       </div>
     </div>
   );
