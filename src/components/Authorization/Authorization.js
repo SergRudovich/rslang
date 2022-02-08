@@ -8,7 +8,7 @@ import CheckButton from "react-validation/build/button";
 import { isEmail, isPasswordLength, isRequired } from '../../helpers/validators';
 import avatar from '../../assets/img/auth_avatar.png';
 import {loginUser} from '../../services/authService';
-import { LOGIN_SUCCESS } from '../../store/actionTypes';
+import { loginSuccess } from '../../store/actions';
 
 function Authorization(props) {
   const form = useRef();
@@ -43,10 +43,7 @@ function Authorization(props) {
       dispatch(loginUser({ email, password }))
         .then((loggedUser) => {
           localStorage.setItem("user", JSON.stringify(loggedUser));
-          dispatch({
-            type: LOGIN_SUCCESS,
-            payload: loggedUser,
-          });
+          dispatch(loginSuccess(loggedUser));
           return navigate('/');
         })
         .catch((err) => {

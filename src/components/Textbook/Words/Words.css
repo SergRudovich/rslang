@@ -1,0 +1,9 @@
+.word-select-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+}
+
+.word-select-wrapper > div {
+  margin: 10px;
+}

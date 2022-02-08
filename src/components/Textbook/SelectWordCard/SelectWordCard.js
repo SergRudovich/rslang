@@ -1,10 +1,25 @@
+import './SelectWordCard.css';
 import React from 'react';
 
-function SelectWordCard() {
+function SelectWordCard(word) {
+
   return (
-    <div>
-      <h1>SelectWordCard</h1>
+    <div className='word-select-card vertical'>
+      <div className='front'
+        style={{
+          backgroundColor: (word.isActive) ? 'beige' : word.categoryColor,
+        }}
+        onClick={() => word.handleSelectWord(word.id)}
+      >
+        {word.word}
+      </div>
+      <div className='back'
+        onClick={() => word.handleSelectWord(word.id)}
+      >
+        {word.wordTranslate}
+      </div>
     </div>
+
   );
 }
 

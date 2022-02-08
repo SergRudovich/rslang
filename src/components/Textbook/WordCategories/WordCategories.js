@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './WordCategories.css';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CategoryCard from '../CategoryCard/CategoryCard';
 import a1 from '../../../assets/img/a1.jpg';
 import a2 from '../../../assets/img/a2.jpg';
@@ -9,6 +9,7 @@ import b2 from '../../../assets/img/b2.jpg';
 import c1 from '../../../assets/img/c1.jpg';
 import c2 from '../../../assets/img/c2.png';
 import difficult from '../../../assets/img/difficult.jpg';
+import { setWordsCategory } from '../../../store/actions';
 
 function WordCategories() {
 
@@ -22,7 +23,21 @@ function WordCategories() {
     { id: 6, category: 'Сложные слова', range: '', img: difficult, isActive: false },
   ]);
 
+  const dispatch = useDispatch();
+
   const user = useSelector(state => state.user);
+  const wordsPage = useSelector(state => state.wordsPage);
+  const wordsCategory = useSelector(state => state.wordsCategory);
+
+  useEffect(() => {
+    localStorage.setItem('wordsPage', String(wordsPage));
+    localStorage.setItem('wordsCategory', String(wordsCategory));
+  }, [wordsCategory, wordsPage]);
+
+  useEffect(() => {
+    dispatch(setWordsCategory(Number(localStorage.getItem('wordsPage')) || 0));
+    // dispatch(setWordsPage(Number(localStorage.getItem('wordsCategory')) || 0));
+  }, [dispatch]);
 
   const toggleCard = (id) => {
     const newCategory = category.map(cat => {
@@ -32,7 +47,8 @@ function WordCategories() {
         cat.isActive = false;
       }
       return cat;
-    })
+    });
+    dispatch(setWordsCategory(id));
     setCategory(newCategory);
   };
 

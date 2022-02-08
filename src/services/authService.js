@@ -1,5 +1,5 @@
 import { API_URL, Http } from "../data/const";
-import { LOGOUT } from '../store/actionTypes';
+import { logoutUser } from '../store/actions';
 
 const createUser = user => async () =>  {
   const response = await fetch(`${API_URL}/users`, {
@@ -37,10 +37,7 @@ const loginUser = user => async () => {
 
 const logout = (dispatch) => {
   localStorage.removeItem("user");
-  dispatch({
-    type: LOGOUT,
-    payload: null,
-  });
+  dispatch(logoutUser());
   document.location.reload();
 };
 
