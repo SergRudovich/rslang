@@ -24,3 +24,8 @@ export const setWordsPage = (page) => ({
   type: actions.SET_WORDS_PAGE,
   payload: page,
 });
+
+export const setUserWords = (words) => ({
+  type: actions.SET_USER_WORDS,
+  payload: words,
+});

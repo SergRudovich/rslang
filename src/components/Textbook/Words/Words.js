@@ -10,7 +10,9 @@ function Words() {
   const categoryColor = ['#b2e15f', '#73b3e1', '#6c70de', '#f78278', '#d5bd65', '#c5a334', '#b8b8b8'];
   const dispatch = useDispatch();
   const words = useSelector(state => state.words);
+  const user = useSelector(state => state.user);
   const wordsPage = useSelector(state => state.wordsPage);
+  const userWords = useSelector(state => state.userWords);
   const wordsCategory = useSelector(state => state.wordsCategory);
   const [selectedWordId, setSelectedWordId] = useState(0);
   const [selectedWord, setSelectedWord] = useState();
@@ -29,6 +31,15 @@ function Words() {
     setSelectedWord(words[id]);
   }
 
+  const isDifficult = (id) => {
+    if (user) {
+      const userWord = userWords.find(word => word.wordId === id)
+      return (userWord) ? (userWord.difficulty === 'difficult') : false;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <div className='words-wrapper'>
       <div className='word-select-wrapper'>
@@ -37,10 +48,12 @@ function Words() {
             key={word.id}
             id={index}
             word={word.word}
+            category={wordsCategory}
             isActive={(index === selectedWordId) ? true : false}
             wordTranslate={word.wordTranslate}
             categoryColor={categoryColor[wordsCategory]}
             handleSelectWord={handleSelectWord}
+            isDifficult={isDifficult(word.id)}
           />
         )}
       </div>

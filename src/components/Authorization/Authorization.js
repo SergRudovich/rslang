@@ -7,10 +7,11 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail, isPasswordLength, isRequired } from '../../helpers/validators';
 import avatar from '../../assets/img/auth_avatar.png';
-import {loginUser} from '../../services/authService';
+import { loginUser } from '../../services/authService';
 import { loginSuccess } from '../../store/actions';
+import { getUserWords } from '../../services/wordsService';
 
-function Authorization(props) {
+function Authorization() {
   const form = useRef();
   const checkBtn = useRef();
 
@@ -43,8 +44,9 @@ function Authorization(props) {
       dispatch(loginUser({ email, password }))
         .then((loggedUser) => {
           localStorage.setItem("user", JSON.stringify(loggedUser));
+          dispatch(getUserWords(loggedUser.userId, loggedUser.token));
           dispatch(loginSuccess(loggedUser));
-          return navigate('/');
+          return navigate(-1);
         })
         .catch((err) => {
           err.then(() => {

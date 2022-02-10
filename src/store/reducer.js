@@ -6,6 +6,7 @@ const savedWordsCategory = JSON.parse(localStorage.getItem("wordsCategory"));
 
 const initialState = {
   words: [],
+  userWords: [],
   user: loggedUser ? loggedUser : null,
   wordsPage: savedWordsPage ? savedWordsPage : 0,
   wordsCategory: savedWordsCategory ? savedWordsCategory : 0,
@@ -39,6 +40,11 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         wordsPage: payload,
+      };
+    case actions.SET_USER_WORDS:
+      return {
+        ...state,
+        userWords: payload,
       };
     default:
       return state;
