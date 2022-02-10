@@ -10,22 +10,19 @@ function Words() {
   const categoryColor = ['#b2e15f', '#73b3e1', '#6c70de', '#f78278', '#d5bd65', '#c5a334', '#b8b8b8'];
   const dispatch = useDispatch();
   const words = useSelector(state => state.words);
+  const wordsPage = useSelector(state => state.wordsPage);
   const wordsCategory = useSelector(state => state.wordsCategory);
   const [selectedWordId, setSelectedWordId] = useState(0);
-  const [selectedWord, setSelectedWord] = useState({});
+  const [selectedWord, setSelectedWord] = useState();
 
   useEffect(() => {
-    dispatch(getWords('0', '0'));
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getWords(wordsCategory, '0'));
+    dispatch(getWords(wordsCategory, wordsPage));
     setSelectedWordId(0);
-  }, [dispatch, wordsCategory]);
+  }, [dispatch, wordsCategory, wordsPage]);
 
   useEffect(() => {
     setSelectedWord(words[0]);
-  }, [dispatch, words]);
+  }, [words]);
 
   const handleSelectWord = (id) => {
     setSelectedWordId(id);
@@ -48,9 +45,10 @@ function Words() {
         )}
       </div>
       <div className='selected-word-wrapper'>
-        <WordCard
+        {selectedWord && <WordCard
           word={selectedWord}
         />
+        }
       </div>
     </div>
   );

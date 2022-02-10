@@ -1,12 +1,14 @@
 import * as actions from './actionTypes';
 
 const loggedUser = JSON.parse(localStorage.getItem("user"));
+const savedWordsPage = JSON.parse(localStorage.getItem("wordsPage"));
+const savedWordsCategory = JSON.parse(localStorage.getItem("wordsCategory"));
 
 const initialState = {
   words: [],
   user: loggedUser ? loggedUser : null,
-  wordsPage: 0,
-  wordsCategory: 0,
+  wordsPage: savedWordsPage ? savedWordsPage : 0,
+  wordsCategory: savedWordsCategory ? savedWordsCategory : 0,
   paginationCount: 30,
 };
 

@@ -38,7 +38,6 @@ const loginUser = user => async () => {
 const logout = (dispatch) => {
   localStorage.removeItem("user");
   dispatch(logoutUser());
-  document.location.reload();
 };
 
 export {

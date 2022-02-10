@@ -9,8 +9,8 @@ function Header() {
 
   const handleLogout = () => {
     logout(dispatch);
-
   }
+
   return (
     <div>
       <h1>Header</h1>

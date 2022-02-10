@@ -9,7 +9,7 @@ import b2 from '../../../assets/img/b2.jpg';
 import c1 from '../../../assets/img/c1.jpg';
 import c2 from '../../../assets/img/c2.png';
 import difficult from '../../../assets/img/difficult.jpg';
-import { setWordsCategory } from '../../../store/actions';
+import { setWordsCategory, setWordsPage } from '../../../store/actions';
 
 function WordCategories() {
 
@@ -26,20 +26,13 @@ function WordCategories() {
   const dispatch = useDispatch();
 
   const user = useSelector(state => state.user);
-  const wordsPage = useSelector(state => state.wordsPage);
-  const wordsCategory = useSelector(state => state.wordsCategory);
 
   useEffect(() => {
-    localStorage.setItem('wordsPage', String(wordsPage));
-    localStorage.setItem('wordsCategory', String(wordsCategory));
-  }, [wordsCategory, wordsPage]);
+    toggleCard(Number(localStorage.getItem('wordsCategory')), true);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  useEffect(() => {
-    dispatch(setWordsCategory(Number(localStorage.getItem('wordsPage')) || 0));
-    // dispatch(setWordsPage(Number(localStorage.getItem('wordsCategory')) || 0));
-  }, [dispatch]);
-
-  const toggleCard = (id) => {
+  const toggleCard = (id, isStart = false) => {
     const newCategory = category.map(cat => {
       if (cat.id === id) {
         cat.isActive = true;
@@ -50,6 +43,13 @@ function WordCategories() {
     });
     dispatch(setWordsCategory(id));
     setCategory(newCategory);
+
+if(!isStart){
+      localStorage.setItem('wordsPage', 0);
+    dispatch(setWordsPage(0));
+    localStorage.setItem('wordsCategory', id);
+}
+
   };
 
   return (

@@ -9,7 +9,7 @@ function WordCard(props) {
 
   return (
     <div className='word-card'>
-      {/* <img src={imgUrl} alt="word"></img> */}
+      <img src={imgUrl} alt="word"></img>
       <p>{word.word}</p>
       <p>{word.transcription}</p>
       <p>{word.wordTranslate}</p>
