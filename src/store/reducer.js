@@ -46,6 +46,11 @@ const appReducer = (state = initialState, action) => {
         ...state,
         userWords: payload,
       };
+    case actions.SET_USER_FILTERED_WORDS:
+      return {
+        ...state,
+        words: payload[0].paginatedResults,
+      };
     default:
       return state;
   }

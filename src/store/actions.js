@@ -29,3 +29,8 @@ export const setUserWords = (words) => ({
   type: actions.SET_USER_WORDS,
   payload: words,
 });
+
+export const setUserFilteredWords = (words) => ({
+  type: actions.SET_USER_FILTERED_WORDS,
+  payload: words,
+});

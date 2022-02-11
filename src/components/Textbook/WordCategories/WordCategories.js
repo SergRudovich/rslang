@@ -29,7 +29,7 @@ function WordCategories() {
 
   useEffect(() => {
     toggleCard(Number(localStorage.getItem('wordsCategory')), true);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleCard = (id, isStart = false) => {
@@ -44,12 +44,11 @@ function WordCategories() {
     dispatch(setWordsCategory(id));
     setCategory(newCategory);
 
-if(!isStart){
+    if (!isStart) {
       localStorage.setItem('wordsPage', 0);
-    dispatch(setWordsPage(0));
-    localStorage.setItem('wordsCategory', id);
-}
-
+      dispatch(setWordsPage(0));
+      localStorage.setItem('wordsCategory', id);
+    }
   };
 
   return (

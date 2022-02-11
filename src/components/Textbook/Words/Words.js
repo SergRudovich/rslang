@@ -2,8 +2,10 @@ import './Words.css';
 import React, { useEffect, useState } from 'react';
 import SelectWordCard from '../SelectWordCard/SelectWordCard';
 import { useDispatch, useSelector } from "react-redux";
-import { getWords } from '../../../services/wordsService';
+import { getWords, getUserWordsFiltered } from '../../../services/wordsService';
 import WordCard from '../WordCard/WordCard';
+import { DIFFICULT_CATEGORY } from '../../../data/const';
+import getFilter from '../../../helpers/filters';
 
 function Words() {
 
@@ -18,8 +20,11 @@ function Words() {
   const [selectedWord, setSelectedWord] = useState();
 
   useEffect(() => {
-    dispatch(getWords(wordsCategory, wordsPage));
+    wordsCategory !== DIFFICULT_CATEGORY ?
+      dispatch(getWords(wordsCategory, wordsPage)) :
+      dispatch(getUserWordsFiltered(user.userId, getFilter("difficult"), user.token));
     setSelectedWordId(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, wordsCategory, wordsPage]);
 
   useEffect(() => {
@@ -44,18 +49,19 @@ function Words() {
     <div className='words-wrapper'>
       <div className='word-select-wrapper'>
         {words.map((word, index) =>
-          <SelectWordCard
-            key={word.id}
-            id={index}
-            word={word.word}
-            category={wordsCategory}
-            isActive={(index === selectedWordId) ? true : false}
-            wordTranslate={word.wordTranslate}
-            categoryColor={categoryColor[wordsCategory]}
-            handleSelectWord={handleSelectWord}
-            isDifficult={isDifficult(word.id)}
-          />
-        )}
+            <SelectWordCard
+              key={word.id}
+              id={index}
+              word={word.word}
+              category={wordsCategory}
+              isActive={(index === selectedWordId) ? true : false}
+              wordTranslate={word.wordTranslate}
+              categoryColor={categoryColor[wordsCategory]}
+              handleSelectWord={handleSelectWord}
+              isDifficult={isDifficult(word.id)}
+            />
+          ) 
+        }
       </div>
       <div className='selected-word-wrapper'>
         {selectedWord && <WordCard
