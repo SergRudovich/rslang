@@ -1,0 +1,8 @@
+.word-categories-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.word-categories-wrapper > div {
+  margin: 20px;
+}

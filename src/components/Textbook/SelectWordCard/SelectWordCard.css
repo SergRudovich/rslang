@@ -1,0 +1,42 @@
+.word-select-card {
+  position: relative;
+  perspective: 500px;
+  width: 250px;
+  height: 100px;
+  background-size: cover;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(44, 42, 42);
+  transition: 0.3s;
+}
+.word-select-card.vertical:hover .front,
+.word-select-card.vertical.flip .front {
+  transform: rotateX(180deg);
+  background-color: beige !important;
+}
+.word-select-card.vertical:hover .back,
+.word-select-card.vertical.flip .back {
+  transform: rotateX(0deg);
+  background-color: beige !important;
+}
+.word-select-card.vertical .back {
+  transform: rotateX(-180deg);
+}
+
+.word-select-card .front,
+.word-select-card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  transition: all 0.5s ease-in;
+  padding: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
