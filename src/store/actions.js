@@ -34,3 +34,13 @@ export const setUserFilteredWords = (words) => ({
   type: actions.SET_USER_FILTERED_WORDS,
   payload: words,
 });
+
+export const showSpinner = () => ({
+  type: actions.SHOW_SPINNER,
+  payload: null,
+});
+
+export const hideSpinner = () => ({
+  type: actions.HIDE_SPINNER,
+  payload: null,
+});

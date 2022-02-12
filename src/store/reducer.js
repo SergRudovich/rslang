@@ -10,7 +10,7 @@ const initialState = {
   user: loggedUser ? loggedUser : null,
   wordsPage: savedWordsPage ? savedWordsPage : 0,
   wordsCategory: savedWordsCategory ? savedWordsCategory : 0,
-  paginationCount: 30,
+  isSpinner: false,
 };
 
 const appReducer = (state = initialState, action) => {
@@ -50,6 +50,16 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         words: payload[0].paginatedResults,
+      };
+    case actions.SHOW_SPINNER:
+      return {
+        ...state,
+        isSpinner: true,
+      };
+    case actions.HIDE_SPINNER:
+      return {
+        ...state,
+        isSpinner: false,
       };
     default:
       return state;

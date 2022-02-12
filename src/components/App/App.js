@@ -4,6 +4,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import MainPage from '../MainPage/MainPage';
@@ -17,9 +18,12 @@ import Learned from '../Textbook/Learned/Learned';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 function App() {
+
+  const isSpinner = useSelector(state => state.isSpinner);
+
   return (
     <BrowserRouter>
-      <LoadingSpinner />
+      {isSpinner && <LoadingSpinner />}
       <Header />
       <Routes>
         <Route path="/" exact element={<MainPage />} />

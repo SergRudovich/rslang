@@ -36,7 +36,7 @@ function Learned() {
       <div className='word-learned-wrapper'>
         {words.map((word, index) =>
           <SelectWordCard
-            key={word.id}
+            key={word._id}
             id={word._id}
             word={word.word}
             isActive={false}

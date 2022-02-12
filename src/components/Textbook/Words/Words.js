@@ -52,7 +52,7 @@ function Words() {
       <div className='word-select-wrapper'>
         {words.map((word, index) =>
             <SelectWordCard
-              key={word.id}
+              key={word._id}
               id={index}
               word={word.word}
               category={wordsCategory}
