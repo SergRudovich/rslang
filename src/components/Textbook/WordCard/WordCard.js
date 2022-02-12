@@ -1,6 +1,6 @@
 import './WordCard.css';
 import React from 'react';
-import { API_URL, DIFFICULT_CATEGORY } from '../../../data/const';
+import { API_URL, DIFFICULT_CATEGORY, wordStatus } from '../../../data/const';
 import { useDispatch, useSelector } from "react-redux";
 import { createUserWord, deleteUserWord, getUserWordsFiltered } from '../../../services/wordsService';
 import getFilter from '../../../helpers/filters';
@@ -15,7 +15,15 @@ function WordCard(props) {
 
   const addDifficulty = () => {
     const userWord = {
-      difficulty: "difficult",
+      difficulty: wordStatus.difficult,
+      optional: {}
+    }
+    dispatch(createUserWord(user.userId, word.id, userWord, user.token));
+  }
+
+  const addLearned = () => {
+    const userWord = {
+      difficulty: wordStatus.learned,
       optional: {}
     }
     dispatch(createUserWord(user.userId, word.id, userWord, user.token));
@@ -23,7 +31,7 @@ function WordCard(props) {
 
   const removeDifficulty = () => {
     dispatch(deleteUserWord(user.userId, word._id, user.token));
-    dispatch(getUserWordsFiltered(user.userId, getFilter('difficult'), user.token));
+    dispatch(getUserWordsFiltered(user.userId, getFilter(wordStatus.difficult), user.token));
   }
 
   return (
@@ -37,7 +45,9 @@ function WordCard(props) {
           <button
             onClick={addDifficulty}
           >Сложное</button>
-          <button>Изученное</button>
+          <button
+            onClick={addLearned}
+          >Изученное</button>
         </>
       }
       {(wordsCategory === DIFFICULT_CATEGORY) &&

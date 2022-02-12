@@ -9,3 +9,7 @@ export const Http = {
   GET: 'GET',
   DELETE: 'DELETE',
 }
+export const wordStatus = {
+  difficult: 'difficult',
+  learned: 'learned',
+}

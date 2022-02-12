@@ -12,16 +12,16 @@ function SelectWordCard(word) {
         onClick={() => word.handleSelectWord(word.id)}
       >
         {word.word}
-        {word.isDifficult && 
-        <p>Сложное</p>
+        {word.difficulty && 
+        <p>{word.difficulty}</p>
         }
       </div>
       <div className='back'
         onClick={() => word.handleSelectWord(word.id)}
       >
         {word.wordTranslate}
-        {word.isDifficult && 
-        <p>Сложное</p>
+        {word.difficulty && 
+        <p>{word.difficulty}</p>
         }
       </div>
     </div>
