@@ -13,14 +13,18 @@ import AudioCallGame from '../AudioCallGame/AudioCallGame';
 import SprintGame from '../SprintGame/SprintGame';
 import Authorization from '../Authorization/Authorization';
 import Register from '../Authorization/Register';
+import Learned from '../Textbook/Learned/Learned';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 function App() {
   return (
     <BrowserRouter>
+      <LoadingSpinner />
       <Header />
       <Routes>
         <Route path="/" exact element={<MainPage />} />
         <Route path="/textbook" element={<Textbook />} />
+        <Route path="/learned" element={<Learned />} />
         <Route path="/statistic" element={<Statistic />} />
         <Route path="/audiocall" element={<AudioCallGame />} />
         <Route path="/sprint" element={<SprintGame />} />
