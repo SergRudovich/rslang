@@ -20,6 +20,7 @@
 }
 
 .sprint-level-container div:hover {
-  transform: scale(1.2);
+  opacity: 1 !important;
+  transform: scale(1.2) !important;
 }
 

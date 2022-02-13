@@ -1,36 +1,58 @@
 import './SelectLevel.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { CATEGORY_COLOR } from '../../../data/const';
 
-function SelectLevel({handleSelectLevel}) {
+function SelectLevel({ handleSelectLevel }) {
+
+  const [category, setCategory] = useState([
+    { id: 0, category: 'A1', isActive: false },
+    { id: 1, category: 'A2', isActive: false },
+    { id: 2, category: 'B1', isActive: false },
+    { id: 3, category: 'B2', isActive: false },
+    { id: 4, category: 'C1', isActive: false },
+    { id: 5, category: 'C2', isActive: false },
+  ]);
+
+  const handleClick = (id) => {
+    const newCategory = category.map(cat => {
+      if (cat.id === id) {
+        cat.isActive = true;
+      } else {
+        cat.isActive = false;
+      }
+      return cat;
+    });
+    setCategory(newCategory);
+    console.log(id)
+  }
+
+  const CatItem = ({ id, category, isActive, handleClick }) => {
+    const click = () => {
+      handleClick(id)
+    }
+    return (
+      <div
+        style={{
+          backgroundColor: `${CATEGORY_COLOR[id]}`,
+          opacity: (isActive) ? '1' : `0.5`,
+          transform: (isActive) ? 'scale(1.2)' : 'scale(1)'
+        }}
+        onClick={click}
+      >{category}</div>
+    )
+  }
 
   return (
     <div className='sprint-level-container'>
-      <div
-        style={{
-          backgroundColor: `${CATEGORY_COLOR[0]}`
-        }}
-        dataLevel='0'
-      >A1</div>
-      <div
-        style={{
-          backgroundColor: `${CATEGORY_COLOR[1]}`
-        }}>A2</div>
-      <div
-        style={{
-          backgroundColor: `${CATEGORY_COLOR[2]}`
-        }}>B1</div>
-      <div
-        style={{
-          backgroundColor: `${CATEGORY_COLOR[3]}`
-        }}>B2</div>
-      <div style={{
-        backgroundColor: `${CATEGORY_COLOR[4]}`
-      }}>C1</div>
-      <div
-        style={{
-          backgroundColor: `${CATEGORY_COLOR[5]}`
-        }}>C2</div>
+      {category.map(cat =>
+        <CatItem
+          key={cat.id}
+          id={cat.id}
+          category={cat.category}
+          isActive={cat.isActive}
+          handleClick={handleClick}
+        />
+      )}
     </div>
   );
 }
