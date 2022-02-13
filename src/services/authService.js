@@ -1,7 +1,8 @@
 import { API_URL, Http } from "../data/const";
-import { logoutUser } from '../store/actions';
+import { logoutUser, showSpinner, hideSpinner } from '../store/actions';
 
-const createUser = user => async () =>  {
+const createUser = user => async (dispatch) =>  {
+  dispatch(showSpinner());
   const response = await fetch(`${API_URL}/users`, {
     method: Http.POST,
     headers: {
@@ -10,6 +11,7 @@ const createUser = user => async () =>  {
     },
     body: JSON.stringify(user)
   });
+  dispatch(hideSpinner());
   if (response.ok) {
     return Promise.resolve('Регистрация прошла успешно. Выполняется вход.');
   } else {
@@ -17,7 +19,8 @@ const createUser = user => async () =>  {
   }
 };
 
-const loginUser = user => async () => {
+const loginUser = user => async (dispatch) => {
+  dispatch(showSpinner());
   const response = await fetch(`${API_URL}/signin`, {
     method: Http.POST,
     headers: {
@@ -26,6 +29,7 @@ const loginUser = user => async () => {
     },
     body: JSON.stringify(user)
   });
+  dispatch(hideSpinner());
   if (response.ok) {
     const loggedUser = await response.json();
     loggedUser.email = user.email;

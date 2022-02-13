@@ -2,10 +2,11 @@ import './Words.css';
 import React, { useEffect, useState } from 'react';
 import SelectWordCard from '../SelectWordCard/SelectWordCard';
 import { useDispatch, useSelector } from "react-redux";
-import { getWords, getUserWordsFiltered } from '../../../services/wordsService';
+import { getWords, getUserWordsFiltered, getUserWords } from '../../../services/wordsService';
 import WordCard from '../WordCard/WordCard';
 import { DIFFICULT_CATEGORY } from '../../../data/const';
 import getFilter from '../../../helpers/filters';
+import { wordStatus } from '../../../data/const';
 
 function Words() {
 
@@ -20,9 +21,10 @@ function Words() {
   const [selectedWord, setSelectedWord] = useState();
 
   useEffect(() => {
+    if (user) dispatch(getUserWords(user.userId, user.token));
     wordsCategory !== DIFFICULT_CATEGORY ?
       dispatch(getWords(wordsCategory, wordsPage)) :
-      dispatch(getUserWordsFiltered(user.userId, getFilter("difficult"), user.token));
+      dispatch(getUserWordsFiltered(user.userId, getFilter(wordStatus.difficult), user.token));
     setSelectedWordId(0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, wordsCategory, wordsPage]);
@@ -36,12 +38,12 @@ function Words() {
     setSelectedWord(words[id]);
   }
 
-  const isDifficult = (id) => {
+  const getWordStatus = (id) => {
     if (user) {
       const userWord = userWords.find(word => word.wordId === id)
-      return (userWord) ? (userWord.difficulty === 'difficult') : false;
+      return (userWord?.difficulty) ? userWord.difficulty : '';
     } else {
-      return false;
+      return '';
     }
   }
 
@@ -50,7 +52,7 @@ function Words() {
       <div className='word-select-wrapper'>
         {words.map((word, index) =>
             <SelectWordCard
-              key={word.id}
+              key={word._id}
               id={index}
               word={word.word}
               category={wordsCategory}
@@ -58,7 +60,7 @@ function Words() {
               wordTranslate={word.wordTranslate}
               categoryColor={categoryColor[wordsCategory]}
               handleSelectWord={handleSelectWord}
-              isDifficult={isDifficult(word.id)}
+              difficulty={getWordStatus(word.id)}
             />
           ) 
         }
