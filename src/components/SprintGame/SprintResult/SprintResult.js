@@ -1,11 +1,24 @@
 import './SprintResult.css';
 import React from 'react';
+import { Link } from "react-router-dom";
 
-function SprintResult() {
+function SprintResult({ gameResult, playAgain }) {
+
   return (
-    <div>
+    <>
       <h1>SprintResult</h1>
-    </div>
+      {gameResult.yes} | {gameResult.no}
+      <div className="btn-group sprint-result-btn" role="group" aria-label="Basic mixed styles example">
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={playAgain}
+        >Играть еще раз</button>
+        <Link to="/textbook">
+          <button type="button" className="btn btn-primary">Перейти в учебник</button>
+        </Link>
+      </div>
+    </>
   );
 }
 

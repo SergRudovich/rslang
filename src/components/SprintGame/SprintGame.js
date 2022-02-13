@@ -6,10 +6,20 @@ import SprintResult from './SprintResult/SprintResult';
 
 function SprintGame() {
 
-  const [game, setGame] = useState({isStart: true});
+  const [game, setGame] = useState({ isStart: true });
+  const [gameResult, setGameResult] = useState({});
 
-  const handlePlayGame = () => {
-    setGame({isPlay: true});
+  const handlePlayGame = (level) => {
+    setGame({ isPlay: true });
+  }
+
+  const getGameResult = (result) => {
+    setGame({ isResult: true });
+    setGameResult(result);
+  }
+
+  const playAgain = () => {
+    setGame({ isStart: true });
   }
 
   return (
@@ -17,8 +27,13 @@ function SprintGame() {
       {game.isStart && <StartSprint
         handlePlayGame={handlePlayGame}
       />}
-      {game.isPlay && <PlaySprint />}
-      {game.isResult && <SprintResult />}
+      {game.isPlay && <PlaySprint
+        getGameResult={getGameResult}
+      />}
+      {game.isResult && <SprintResult
+        gameResult={gameResult}
+        playAgain={playAgain}
+      />}
     </div>
   );
 }
