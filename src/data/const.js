@@ -13,3 +13,4 @@ export const wordStatus = {
   difficult: 'difficult',
   learned: 'learned',
 }
+export const CATEGORY_COLOR = ['#b2e15f', '#73b3e1', '#6c70de', '#f78278', '#d5bd65', '#c5a334', '#b8b8b8'];

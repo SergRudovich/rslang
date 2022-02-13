@@ -1,0 +1,42 @@
+.answer-btns {
+  width: 300px;
+  margin: 20px;
+}
+
+.sprint-start-count {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 20px;
+  max-width: 200px;
+}
+
+.sprint-start-count span {
+  margin-right: 10px;
+}
+
+.sprint-start-count span:first-child {
+  margin-right: 20px;
+}
+
+.sprint-start-countY {
+  color: darkgreen;
+}
+
+.sprint-start-countN {
+  color: brown;
+}
+
+.sprint-start-question {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 20px;
+  margin-bottom: 100px;
+  max-width: 1000px;
+  color: darkgreen;
+}
+
+.sprint-start-question_label {
+  color: brown;
+}
+
+
