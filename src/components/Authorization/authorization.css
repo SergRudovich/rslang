@@ -1,0 +1,13 @@
+.auth-page {
+  min-height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blanchedalmond;
+}
+
+.auth-form-wrapper {
+  width: 400px;
+  margin-top: 20px;
+}
+

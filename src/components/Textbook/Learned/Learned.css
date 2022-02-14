@@ -1,0 +1,9 @@
+.word-learned-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.word-learned-wrapper > div {
+  margin: 10px;
+}

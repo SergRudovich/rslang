@@ -1,0 +1,18 @@
+.words-wrapper {
+  display: flex;
+}
+
+.word-select-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+}
+
+.word-select-wrapper > div {
+  margin: 10px;
+}
+
+.selected-word-wrapper {
+  width: 60%;
+  padding: 10px;
+}
