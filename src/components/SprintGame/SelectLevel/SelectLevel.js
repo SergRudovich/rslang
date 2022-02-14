@@ -23,7 +23,7 @@ function SelectLevel({ handleSelectLevel }) {
       return cat;
     });
     setCategory(newCategory);
-    console.log(id)
+    handleSelectLevel(id);
   }
 
   const CatItem = ({ id, category, isActive, handleClick }) => {

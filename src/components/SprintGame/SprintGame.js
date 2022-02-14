@@ -10,6 +10,7 @@ function SprintGame() {
   const [gameResult, setGameResult] = useState({});
 
   const handlePlayGame = (level) => {
+    
     setGame({ isPlay: true });
   }
 
