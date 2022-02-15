@@ -23,7 +23,7 @@ function Header() {
       <Link to="/textbook">textbook </Link>
       <Link to="/statistic">statistic </Link>
       <Link to="/audiocall">audiocall </Link>
-      <Link to="/sprint">sprint </Link>
+      <Link to="/sprint?from=menu">sprint </Link>
 
       {!user ?
         <Link to="/authorization">- Войдите или зарегистрируйтесь</Link> :

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { SPRINT_TIMER, MAX_WORDS_IN_PAGE } from '../../../data/const';
 import getRandomNum from '../../../helpers/getRandomNum';
 
-function PlaySprint({ getGameResult }) {
+function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
 
   const [gameCountY, setGameCountY] = useState(0);
   const [gameCountN, setGameCountN] = useState(0);
@@ -57,18 +57,22 @@ function PlaySprint({ getGameResult }) {
 
   const handleYes = () => {
     if (isTrueAnswer) {
-      setGameCountY(gameCountY => gameCountY + 1)
+      setGameCountY(gameCountY => gameCountY + 1);
+      setCorrectWord(currentWord);
     } else {
-      setGameCountN(gameCountN => gameCountN + 1)
+      setGameCountN(gameCountN => gameCountN + 1);
+      setWrongWord(currentWord);
     }
     getRundomWord();
   }
 
   const handleNo = () => {
     if (isTrueAnswer) {
-      setGameCountN(gameCountN => gameCountN + 1)
+      setGameCountN(gameCountN => gameCountN + 1);
+      setWrongWord(currentWord);
     } else {
-      setGameCountY(gameCountY => gameCountY + 1)
+      setGameCountY(gameCountY => gameCountY + 1);
+      setCorrectWord(currentWord);
     }
     getRundomWord();
   }

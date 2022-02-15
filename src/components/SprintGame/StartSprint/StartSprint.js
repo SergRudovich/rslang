@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getWords } from '../../../services/wordsService';
 import getRandomNum from '../../../helpers/getRandomNum';
 
-function StartSprint({ handlePlayGame }) {
+function StartSprint({ handlePlayGame, from }) {
 
   const [isDisabled, setIsDisabled] = useState(true);
   const dispatch = useDispatch();
@@ -20,10 +20,20 @@ function StartSprint({ handlePlayGame }) {
       <div className='sprint-start-title'>Спринт</div>
       <div className='sprint-start-description'>Спринт - это игра на скорость. Необходимо правильно
         ответить на как можно большее количество вопросов за 30 секунд</div>
-      <div className='sprint-start-label'>Выберите уровень сложности слов</div>
-      <SelectLevel handleSelectLevel={handleSelectLevel} />
+      {(from === 'menu') ? <>
+        <div className='sprint-start-label'>Выберите уровень сложности слов</div>
+        <SelectLevel handleSelectLevel={handleSelectLevel} />
+      </> :
+        <>
+          <div className='sprint-start-label'>
+            Будут использованы текущие слова из учебника.
+          </div>
+        </>
+
+      }
+
       <button
-        disabled={isDisabled}
+        disabled={(from==='textbook') ? false : isDisabled}
         className='btn btn-primary sprint-start-btn'
         onClick={handlePlayGame}
       >Начать игру</button>

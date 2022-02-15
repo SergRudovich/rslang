@@ -29,7 +29,8 @@ function Textbook() {
       {wordsCategory !== DIFFICULT_CATEGORY &&
         <Paginate />}
       <h1>Игры</h1>
-      <h3>Закрепи изученное играючи</h3>
+      <h3><Link to="/sprint?from=textbook">Спринт</Link></h3>
+      <h3><Link to="/audiocall">Аудиовызов</Link></h3>
     </div>
   );
 }

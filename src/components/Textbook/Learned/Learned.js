@@ -34,7 +34,7 @@ function Learned() {
         }
       </h1>
       <div className='word-learned-wrapper'>
-        {words.map((word, index) =>
+        {words.map((word) =>
           <SelectWordCard
             key={word._id}
             id={word._id}

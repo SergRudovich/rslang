@@ -1,3 +1,60 @@
-.sprint-result-btn button:first-child{
+.sprint-result-btn button:first-child {
   margin-right: 20px;
+}
+
+.result-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 800px;
+  background-color: bisque;
+  padding: 20px;
+  margin: 20px;
+  overflow: scroll;
+}
+
+.result-list-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  font-weight: 700;
+}
+
+.result-list-label span {
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+.result-list-label div {
+  font-size: 1.5rem;
+  width: 50px;
+  background-color: brown;
+  text-align: center;
+  color: aliceblue;
+  border-radius: 25%;
+}
+
+.correct-color {
+  background-color: darkcyan !important;
+}
+
+.result-list-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.result-list-item_img {
+  width: 50px;
+  height: 50px;
+  margin-right: 30px;
+  background-size: contain;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.result-list-item_img:hover {
+  transform: scale(1.2);
 }
