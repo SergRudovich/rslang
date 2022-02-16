@@ -5,7 +5,9 @@ import useSound from 'use-sound';
 import { API_URL } from '../../../data/const';
 
 function ResultListItem({ word, audio, wordTranslate }) {
-  const [play] = useSound(`${API_URL}/${audio}`);
+  const [play] = useSound(`${API_URL}/${audio}`, {
+    interrupt: true,
+  });
   return (
     <div className='result-list-item'>
       <div
