@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import { SPRINT_TIMER, MAX_WORDS_IN_PAGE } from '../../../data/const';
 import getRandomNum from '../../../helpers/getRandomNum';
 
+let sequence = 0;
+let maxSequence = 0;
+
 function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
 
   const [gameCountY, setGameCountY] = useState(0);
@@ -34,6 +37,7 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
 
   useEffect(() => {
     getRundomWord();
+    sequence = 0;
   }, [])
 
   useEffect(() => {
@@ -44,6 +48,7 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
     getGameResult({
       yes: gameCountY,
       no: gameCountN,
+      maxSequence: maxSequence,
     });
   }
 
@@ -62,9 +67,12 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
 
   const handleYes = () => {
     if (isTrueAnswer) {
+      sequence += 1;
+      if (sequence > maxSequence) maxSequence = sequence;
       setGameCountY(gameCountY => gameCountY + 1);
       setCorrectWord(currentWord);
     } else {
+      sequence = 0;
       setGameCountN(gameCountN => gameCountN + 1);
       setWrongWord(currentWord);
     }
@@ -73,9 +81,12 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
 
   const handleNo = () => {
     if (isTrueAnswer) {
+      sequence = 0;
       setGameCountN(gameCountN => gameCountN + 1);
       setWrongWord(currentWord);
     } else {
+      sequence += 1;
+      if (sequence > maxSequence) maxSequence = sequence;
       setGameCountY(gameCountY => gameCountY + 1);
       setCorrectWord(currentWord);
     }
