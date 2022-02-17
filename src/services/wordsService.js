@@ -32,8 +32,19 @@ const getUserWords = (userId, token) => async (dispatch) => {
   dispatch(setUserWords(userWords));
 };
 
+const getUserWord = async (userId, wordId, token) => {
+  return await fetch(`${API_URL}/users/${userId}/words/${wordId}`, {
+    method: Http.GET,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+  });
+}
+
 const createUserWord = (userId, wordId, word, token) => async (dispatch) => {
-  const tryCreate = async (httpMethod) => {
+  const tryCreate = async (httpMethod, newWord) => {
     return await fetch(`${API_URL}/users/${userId}/words/${wordId}`, {
       method: httpMethod,
       headers: {
@@ -41,11 +52,18 @@ const createUserWord = (userId, wordId, word, token) => async (dispatch) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(word)
+      body: JSON.stringify(newWord)
     });
   }
-  const response = await tryCreate(Http.POST);
-  if (response.status === 417) await tryCreate(Http.PUT);
+  const response = await getUserWord(userId, wordId, token);
+  if (response.status === 404) {
+    await tryCreate(Http.POST, word);
+  } else {
+    const userWord = await response.json();
+    delete userWord.id;
+    delete userWord.wordId;
+    await tryCreate(Http.PUT, { ...userWord, ...word });
+  }
   dispatch(getUserWords(userId, token));
 };
 

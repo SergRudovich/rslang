@@ -14,7 +14,7 @@ function WordCard(props) {
   const user = useSelector(state => state.user);
   const wordsCategory = useSelector(state => state.wordsCategory);
   const dispatch = useDispatch();
-  const [playAudio, { stop }] = useSound(`${API_URL}/${word.audio}`, {
+  const [playAudio] = useSound(`${API_URL}/${word.audio}`, {
     interrupt: true,
   });
   const [playAudioMeaning, { stop: meaningStop }] = useSound(`${API_URL}/${word.audioMeaning}`, {
@@ -39,7 +39,6 @@ function WordCard(props) {
   const addDifficulty = () => {
     const userWord = {
       difficulty: wordStatus.difficult,
-      optional: {}
     }
     dispatch(createUserWord(user.userId, word.id, userWord, user.token));
   }
@@ -47,7 +46,6 @@ function WordCard(props) {
   const addLearned = () => {
     const userWord = {
       difficulty: wordStatus.learned,
-      optional: {}
     }
     dispatch(createUserWord(user.userId, word.id, userWord, user.token));
   }
