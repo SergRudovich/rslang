@@ -17,10 +17,11 @@ function SprintGame() {
   const from = searchParams.get('from');
 
   const handlePlayGame = () => {
-    setTimeout(() => setGame({ isPlay: true }), 500);
+    setGame({ isPlay: true });
   }
 
   const getGameResult = (result) => {
+    console.log(correctWords)
     setGame({ isResult: true });
     setGameResult(result);
   }

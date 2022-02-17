@@ -15,6 +15,7 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
   const [word, setWord] = useState('');
   const words = useSelector(state => state.words);
   const [timerValue, setTimerValue] = useState(SPRINT_TIMER);
+  const [isWord, setIsWord] = useState(false);
 
   const getRundomWord = () => {
     const curr = words[getRandomNum(0, MAX_WORDS_IN_PAGE - 1)];
@@ -34,6 +35,10 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
   useEffect(() => {
     getRundomWord();
   }, [])
+
+  useEffect(() => {
+    setIsWord(true);
+  }, [word])
 
   const timeOver = () => {
     getGameResult({
@@ -88,12 +93,14 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
         <span>/</span>
         <span className='sprint-start-countN'>{gameCountN}</span>
       </div>
-      <div className='sprint-start-question'>
-        {word}
-        <span className='sprint-start-question_label'> это </span>
-        {translate}
-        <span className='sprint-start-question_label'> ? </span>
-      </div>
+      {isWord &&
+        <div className='sprint-start-question'>
+          {word}
+          <span className='sprint-start-question_label'> это </span>
+          {translate}
+          <span className='sprint-start-question_label'> ? </span>
+        </div>
+      }
       <div className="btn-group answer-btns" role="group" aria-label="Basic mixed styles example">
         <button
           type="button"

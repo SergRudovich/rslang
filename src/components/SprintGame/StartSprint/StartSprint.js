@@ -29,11 +29,9 @@ function StartSprint({ handlePlayGame, from }) {
             Будут использованы текущие слова из учебника.
           </div>
         </>
-
       }
-
       <button
-        disabled={(from==='textbook') ? false : isDisabled}
+        disabled={(from === 'textbook') ? false : isDisabled}
         className='btn btn-primary sprint-start-btn'
         onClick={handlePlayGame}
       >Начать игру</button>
