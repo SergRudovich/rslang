@@ -3,7 +3,7 @@ export const API_URL = 'https://dreamteam-rs-lang.herokuapp.com';
 export const PASSWORD_RANGE = {min: 8, max: 40};
 export const USERNAME_RANGE = {min: 5, max: 20};
 export const DIFFICULT_CATEGORY = 6;
-export const SPRINT_TIMER = 20;
+export const SPRINT_TIMER = 5;
 export const MAX_WORD_PAGES = 30;
 export const MAX_WORDS_IN_PAGE = 20;
 export const Http = {
@@ -15,5 +15,12 @@ export const Http = {
 export const wordStatus = {
   difficult: 'difficult',
   learned: 'learned',
+  normal: 'normal',
 }
+
+export const gameName = {
+  sprint: 'sprint',
+  audiocall: 'audiocall',
+}
+
 export const CATEGORY_COLOR = ['#b2e15f', '#73b3e1', '#6c70de', '#f78278', '#d5bd65', '#c5a334', '#b8b8b8'];

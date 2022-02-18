@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './WordCard.css';
 import React, { useEffect } from 'react';
 import { API_URL, DIFFICULT_CATEGORY, wordStatus } from '../../../data/const';
@@ -28,7 +29,7 @@ function WordCard(props) {
     return () => {
       meaningStop()
     }
-  })
+  });
 
   const playWord = () => {
     playAudio();
@@ -52,7 +53,9 @@ function WordCard(props) {
 
   const removeDifficulty = () => {
     dispatch(deleteUserWord(user.userId, word._id, user.token));
-    dispatch(getUserWordsFiltered(user.userId, getFilter(wordStatus.difficult), user.token));
+    setTimeout(() => {
+      dispatch(getUserWordsFiltered(user.userId, getFilter(wordStatus.difficult), user.token));
+    }, 300)
   }
 
   return (

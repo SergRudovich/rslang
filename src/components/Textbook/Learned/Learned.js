@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './Learned.css';
 import React, { useEffect } from 'react';
 import SelectWordCard from '../SelectWordCard/SelectWordCard';
@@ -6,22 +7,26 @@ import { Link } from "react-router-dom";
 import { getUserWordsFiltered, deleteUserWord } from '../../../services/wordsService';
 import getFilter from '../../../helpers/filters';
 import { wordStatus } from '../../../data/const';
+import { setWords } from '../../../store/actions';
 
 function Learned() {
 
   const words = useSelector(state => state.words);
   const user = useSelector(state => state.user);
+  const userWords = useSelector(state => state.userWords);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUserWordsFiltered(user.userId, getFilter(wordStatus.learned), user.token));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(setWords([]));
   }, []);
 
   const removeLearnedWord = (id) => {
     dispatch(deleteUserWord(user.userId, id, user.token));
-    dispatch(getUserWordsFiltered(user.userId, getFilter(wordStatus.learned), user.token));
   }
+
+  useEffect(() => {
+    dispatch(getUserWordsFiltered(user.userId, getFilter(wordStatus.learned), user.token));
+  }, [userWords]);
 
   return (
     <div className='textbook-wrapper'>
