@@ -5,9 +5,12 @@ import ResultList from './ResultList';
 
 function SprintResult({ gameResult, playAgain, wrongWords, correctWords }) {
 
+  let result = Math.round(gameResult.yes / ((gameResult.yes + gameResult.no) / 100));
+  if (Number.isNaN(result)) result = 0;
+
   return (
     <>
-      <h1>Результат Спринта: {Math.round(gameResult.yes / ((gameResult.yes + gameResult.no) / 100))}%</h1>
+      <h1>Результат Спринта: {result}%</h1>
       <ResultList
         correctWords={correctWords}
         wrongWords={wrongWords}

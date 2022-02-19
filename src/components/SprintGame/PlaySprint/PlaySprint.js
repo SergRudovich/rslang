@@ -36,11 +36,6 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
   }
 
   useEffect(() => {
-    getRundomWord();
-    sequence = 0;
-  }, [])
-
-  useEffect(() => {
     setIsWord(true);
   }, [word])
 
@@ -65,7 +60,7 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
     return () => clearInterval(interval);
   }, [timerValue]);
 
-  const handleYes = () => {
+  function handleYes() {
     if (isTrueAnswer) {
       sequence += 1;
       if (sequence > maxSequence) maxSequence = sequence;
@@ -79,7 +74,7 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
     getRundomWord();
   }
 
-  const handleNo = () => {
+  function handleNo() {
     if (isTrueAnswer) {
       sequence = 0;
       setGameCountN(gameCountN => gameCountN + 1);
@@ -92,6 +87,22 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
     }
     getRundomWord();
   }
+
+  useEffect(() => {
+    getRundomWord();
+    sequence = 0;
+  }, [])
+
+  function onKeypress(e) {
+    if (e.key === 'ArrowRight') handleNo();
+    if (e.key === 'ArrowLeft') handleYes();
+    e.preventDefault();
+  }
+
+  useEffect(() => {
+    window.addEventListener('keyup', onKeypress);
+    return () => window.removeEventListener('keyup', onKeypress);
+  });
 
   return (
     <>
