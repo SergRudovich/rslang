@@ -16,6 +16,7 @@ import Authorization from '../Authorization/Authorization';
 import Register from '../Authorization/Register';
 import Learned from '../Textbook/Learned/Learned';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import TeamAbout from '../TeamAbout/TeamAbout';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/sprint" element={<SprintGame />} />
         <Route path="/authorization" element={<Authorization />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/team-about" element={<TeamAbout />} />
       </Routes>
       <Footer />
     </BrowserRouter>

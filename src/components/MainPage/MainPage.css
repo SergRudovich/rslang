@@ -1,0 +1,131 @@
+/* ====== main ====== */
+.main__row {
+  display: flex;
+  border-bottom: 2px dashed var(--accent-p4321-2);
+}
+.main__text {
+  flex: 0 1 50%;
+  padding: 0 20px 0 0;
+}
+.main__image {
+  /* flex: 1 1 50%; */
+}
+.main__image img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.benefits {
+}
+.benefits__title {
+}
+.benefits__list {
+  
+}
+.benefits__item {
+  position: relative;
+  padding: 0 0 0 40px;
+}
+.benefits__item::before {
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: 0;
+
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-dark2);
+  border-radius: 2px;
+  margin: 0 15px;
+}
+
+/* ====== /main ====== */
+/* ====== about-team ====== */
+.about-team {
+  padding: 30px 20px;
+}
+.about-team__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.about-team__item {
+  flex: 0 1 30%;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 200px;
+  font-weight: 700;
+}
+
+.about-team__foto {
+  position: relative;
+  
+  text-align: center;
+  line-height: 200px;
+  font-size: 28px;
+  font-weight: 700;
+  background-color: var(--accent-p4321-3);
+
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  margin: 0 0 15px 0;
+
+  background: url(./../../assets/img/03.jpg) no-repeat center center;
+  background-size: cover;
+
+  transform: rotate(-0.00001deg);
+
+}
+.about-team__foto::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+
+  top: 47px;
+  left: 173px;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  color: var(--font-dark);
+  border: 2px dashed var(--accent-p4321-2);
+  /* background-color: var(--accent-p4321-2); */
+
+  transform: rotate(-18deg);
+}
+.about-team__foto-1 {
+
+}
+.about-team__github::before {
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 25%; 
+
+  width: 25px;
+  height: 25px;
+  background: url(./../../assets/svg/icons8-github.svg) no-repeat center center;
+  background-size: cover;
+}
+.about-team__github {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 0 0 30px;
+  font-size: 20px;
+  font-weight: 500;
+  /* text-align: center; */
+
+  border-radius: 12px;
+  line-height: 42px;
+  background-color: var(--accent-p4321-1);
+}
+.about-team__contribution {
+}
+/* ====== /about-team ====== */
