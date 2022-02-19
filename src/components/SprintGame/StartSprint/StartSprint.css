@@ -1,0 +1,23 @@
+.sprint-start-title {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.sprint-start-description {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 40px;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.sprint-start-label{
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 20px;
+  max-width: 1000px;
+}
+
+.sprint-start-btn {
+  margin: 20px;
+}

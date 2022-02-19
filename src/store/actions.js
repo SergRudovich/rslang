@@ -44,3 +44,8 @@ export const hideSpinner = () => ({
   type: actions.HIDE_SPINNER,
   payload: null,
 });
+
+export const setSprintSequence = (sequence) => ({
+  type: actions.SET_SPRINT_SEQUENCE,
+  payload: sequence,
+});

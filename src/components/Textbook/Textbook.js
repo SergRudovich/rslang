@@ -13,7 +13,7 @@ function Textbook() {
   const user = useSelector(state => state.user);
 
   return (
-    <div className='textbook-wrapper'>
+    <div className='textbook-wrapper container'>
       <h1><Link to="/textbook">Учебник</Link>
         {user &&
           <>
@@ -27,9 +27,13 @@ function Textbook() {
       <h1>Слова</h1>
       <Words />
       {wordsCategory !== DIFFICULT_CATEGORY &&
-        <Paginate />}
-      <h1>Игры</h1>
-      <h3>Закрепи изученное играючи</h3>
+        <>
+          <Paginate />
+          <h1>Игры</h1>
+          <h3><Link to="/sprint?from=textbook">Спринт</Link></h3>
+          <h3><Link to="/audiocall">Аудиовызов</Link></h3>
+        </>
+      }
     </div>
   );
 }

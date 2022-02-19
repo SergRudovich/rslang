@@ -4,14 +4,18 @@ import { wordStatus } from '../../../data/const';
 
 function SelectWordCard(word) {
 
+  const difficulty = (word.difficulty === wordStatus.normal) ? false : true;
+
   const statusColor = {
-    [wordStatus.difficult]: '#ED4F32',
-    [wordStatus.learned]: 'green',
+    [wordStatus.difficult]: '#bd3939',
+    [wordStatus.learned]: '#52b345',
+    [wordStatus.normal]: word.categoryColor,
   }
 
   const statusColorBg = {
     [wordStatus.difficult]: 'Tan',
     [wordStatus.learned]: 'MediumAquamarine	',
+    [wordStatus.normal]: word.categoryColor,
   }
 
   const cardBg = () => {
@@ -25,11 +29,6 @@ function SelectWordCard(word) {
         color: statusColor[word.difficulty],
       }}
     >{word.difficulty}</p>
-    <div className='word-status'
-      style={{
-        backgroundColor: statusColor[word.difficulty],
-      }}
-    ></div>
   </>
 
   const delButton = <button className='btn btn-secondary'>
@@ -45,14 +44,14 @@ return (
       onClick={() => word.handleSelectWord(word.id)}
     >
       {word.word}
-      {word.difficulty && statusAlert}
+      {difficulty && statusAlert}
       {word.inLearned && delButton}
     </div>
     <div className='back'
       onClick={() => word.handleSelectWord(word.id)}
     >
       {word.wordTranslate}
-      {word.difficulty && statusAlert}
+      {difficulty && statusAlert}
       {word.inLearned && delButton}
     </div>
   </div>

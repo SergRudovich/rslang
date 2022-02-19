@@ -20,14 +20,14 @@ function Header() {
         </Link>
         <nav>
           <ul className="navigation">
-            <li>
+            <li className="btn btn--dark">
               <Link to="/team-about">О команде</Link>
             </li>
             <li className="btn">
               <Link to="/textbook">Учебник слов</Link>
             </li>
             <li className="btn btn--dark">
-              <Link to="/sprint">Игра «Cпринт»</Link>
+              <Link to="/sprint?from=menu">Игра «Cпринт»</Link>
             </li>
             <li className="btn btn--dark ">
               <Link to="/audiocall">Игра «Аудиовызов»</Link>
@@ -41,31 +41,17 @@ function Header() {
           {!user ? (
             <Link to="/authorization" className="btn btn--outline-light">Войти</Link>
           ) : (
-            <button onClick={handleLogout}>Войти?</button>
+            <button className="btn btn--outline-light" onClick={handleLogout}>Выйти</button>
           )}
+          {/* <h3>
+            {user ? (
+              <span>Привет: {user.email && user.email}</span>
+            ) : (
+              <span></span>
+            )}
+          </h3> */}
         </div>
       </div>
-
-      <h3>
-        {user ? (
-          <span>Вы вошли как: {user.email && user.email}</span>
-        ) : (
-          <span></span>
-        )}
-      </h3>
-
-      {/* <Link to="/team-about">О команде</Link> */}
-      {/* <Link to="/">Home </Link> */}
-      {/* <Link to="/textbook">textbook </Link> */}
-      {/* <Link to="/statistic">statistic </Link> */}
-      {/* <Link to="/audiocall">audiocall </Link> */}
-      {/* <Link to="/sprint">sprint </Link> */}
-
-      {/* {!user ? (
-        <Link to="/authorization">- Войдите или зарегистрируйтесь</Link>
-      ) : (
-        <button onClick={handleLogout}>logout</button>
-      )} */}
     </header>
   );
 }

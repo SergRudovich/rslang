@@ -1,11 +1,10 @@
-import { API_URL, Http } from "../data/const";
+import { API_URL, Http, gameName } from "../data/const";
 import {
   setWords,
   setUserWords,
   setUserFilteredWords,
-  showSpinner,
-  hideSpinner
 } from '../store/actions';
+import makeUserWord from "../helpers/makeUserWord";
 
 const getWords = (category, page) => async (dispatch) => {
   const response = await fetch(`${API_URL}/words?group=${category}&page=${page}`, {
@@ -32,8 +31,19 @@ const getUserWords = (userId, token) => async (dispatch) => {
   dispatch(setUserWords(userWords));
 };
 
+const getUserWord = async (userId, wordId, token) => {
+  return await fetch(`${API_URL}/users/${userId}/words/${wordId}`, {
+    method: Http.GET,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+  });
+}
+
 const createUserWord = (userId, wordId, word, token) => async (dispatch) => {
-  const tryCreate = async (httpMethod) => {
+  const tryCreate = async (httpMethod, newWord) => {
     return await fetch(`${API_URL}/users/${userId}/words/${wordId}`, {
       method: httpMethod,
       headers: {
@@ -41,16 +51,38 @@ const createUserWord = (userId, wordId, word, token) => async (dispatch) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(word)
+      body: JSON.stringify(newWord)
     });
   }
-  const response = await tryCreate(Http.POST);
-  if (response.status === 417) await tryCreate(Http.PUT);
+  const response = await getUserWord(userId, wordId, token);
+  if (response.status === 404) {
+    const userWord = {
+      difficulty: 'normal',
+      optional: {
+        [gameName.sprint]: {
+          new: '',
+          yes: 0,
+          no: 0,
+        },
+        [gameName.audiocall]: {
+          new: '',
+          yes: 0,
+          no: 0,
+        },
+      },
+    };
+    await tryCreate(Http.POST, makeUserWord(word, userWord));
+  } else {
+    const userWord = await response.json();
+    delete userWord.id;
+    delete userWord.wordId;
+    await tryCreate(Http.PUT, makeUserWord(word, userWord));
+  }
   dispatch(getUserWords(userId, token));
 };
 
 const getUserWordsFiltered = (userId, filter, token) => async (dispatch) => {
-  dispatch(showSpinner());
+  // dispatch(showSpinner());
   const response = await fetch(`${API_URL}/users/${userId}/aggregatedWords?filter=${JSON.stringify(filter)}&wordsPerPage=1000`, {
     method: Http.GET,
     headers: {
@@ -60,13 +92,12 @@ const getUserWordsFiltered = (userId, filter, token) => async (dispatch) => {
     },
   });
   const userFilteredWords = await response.json();
-  dispatch(hideSpinner());
+  // dispatch(hideSpinner());
   dispatch(setUserFilteredWords(userFilteredWords));
 };
 
 const deleteUserWord = (userId, wordId, token) => async (dispatch) => {
-  dispatch(showSpinner());
-  await fetch(`${API_URL}/users/${userId}/words/${wordId}`, {
+   fetch(`${API_URL}/users/${userId}/words/${wordId}`, {
     method: Http.DELETE,
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -74,7 +105,6 @@ const deleteUserWord = (userId, wordId, token) => async (dispatch) => {
       'Content-Type': 'application/json'
     },
   });
-  dispatch(hideSpinner());
   dispatch(getUserWords(userId, token));
 };
 
