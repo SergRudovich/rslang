@@ -1,0 +1,42 @@
+/* ====== footer ====== */
+.footer {
+  font-size: 18px;
+  font-weight: 500;
+}
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.footer__column{
+  display: flex;
+  align-items: center;
+}
+.footer__rss-image {
+  display: block;
+  width: 65px;
+}
+.footer__rss-image img {
+  max-width: 100%;
+}
+.footer__copyright {
+}
+.footer__github-image {
+  width: 30px;
+}
+.footer__github-image img {
+  max-width: 100%;
+}
+.footer__rss-team{
+  font-family: var(--font-family-accent);
+}
+.footer__github-team {
+  display: flex;
+  align-items: center;
+}
+.footer__github-team li {
+  margin: 0 5px;
+}
+/* ====== /footer ====== */
