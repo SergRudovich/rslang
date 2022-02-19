@@ -1,6 +1,6 @@
 .word-card {
   max-width: 500px;
-  height: 800px;
+  min-height: 900px;
   background-color: var(--accent-p4321-2);;
   border-radius: 20px;
   padding: 20px;
@@ -14,4 +14,35 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-right: 20px;
+}
+
+.word-card-btn {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.word-card-btn button {
+  margin-right: 20px;
+}
+
+.word-card-img {
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+}
+
+.word-card-word {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.word-card-wordTranslate {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.word-card-textMeaning {
+  font-size: 1rem;
+  margin-top: 20px;
 }

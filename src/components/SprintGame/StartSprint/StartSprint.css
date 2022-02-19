@@ -1,13 +1,12 @@
 .sprint-start-title {
   font-size: 3rem;
   font-weight: 900;
-  margin-top: 20px;
 }
 
 .sprint-start-description {
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 50px;
+  margin: 40px;
   max-width: 1000px;
   text-align: center;
 }

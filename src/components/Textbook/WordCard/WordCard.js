@@ -60,8 +60,8 @@ function WordCard(props) {
 
   return (
     <div className='word-card'>
-      <img src={imgUrl} alt="word"></img>
-      <p>{word.word}</p>
+      <img className='word-card-img' src={imgUrl} alt="word"></img>
+      <span className='word-card-word'>{word.word}</span>
       <div className='word-card-sound'>
         <span>{word.transcription}</span>
         <div
@@ -72,9 +72,9 @@ function WordCard(props) {
           onClick={playWord}
         ></div>
       </div>
-      <p>{word.wordTranslate}</p>
+      <p className='word-card-wordTranslate'>{word.wordTranslate}</p>
       {(user && wordsCategory !== DIFFICULT_CATEGORY) &&
-        <>
+        <div className='word-card-btn'>
           <button
             className='btn'
             onClick={addDifficulty}
@@ -83,7 +83,7 @@ function WordCard(props) {
             className='btn'
             onClick={addLearned}
           >Изученное</button>
-        </>
+        </div>
       }
       {(wordsCategory === DIFFICULT_CATEGORY) &&
         <button
@@ -91,9 +91,9 @@ function WordCard(props) {
           onClick={removeDifficulty}
         >Удалить из сложных</button>
       }
-      <p>{word?.textMeaning}</p>
-      <p>{word?.textMeaningTranslate}</p>
-      <p>{word?.textExampleTranslate}</p>
+      <p className='word-card-textMeaning'>{word?.textMeaning}</p>
+      <p className='word-card-textMeaning'>{word?.textMeaningTranslate}</p>
+      <p className='word-card-textMeaning'>{word?.textExampleTranslate}</p>
     </div>
   );
 }

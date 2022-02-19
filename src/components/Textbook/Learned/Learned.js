@@ -29,7 +29,7 @@ function Learned() {
   }, [userWords]);
 
   return (
-    <div className='textbook-wrapper container'>
+    <div className='textbook-wrapper main__screen container'>
       <h1><Link to="/textbook">Учебник</Link>
         {user &&
           <>
