@@ -1,7 +1,7 @@
 .word-card {
-  max-width: 800px;
-  height: 1000px;
-  background-color: burlywood;
+  max-width: 500px;
+  height: 800px;
+  background-color: var(--accent-p4321-2);;
   border-radius: 20px;
   padding: 20px;
 }

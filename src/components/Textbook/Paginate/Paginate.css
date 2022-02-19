@@ -4,3 +4,24 @@
   justify-content: center;
   padding-top: 20px;
 }
+
+.pagination {
+  display: flex;
+}
+
+.btn-paginate {
+  margin-right: 20px;
+}
+
+.page-item {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.page-link {
+color: aliceblue;
+font-weight: 600;
+}

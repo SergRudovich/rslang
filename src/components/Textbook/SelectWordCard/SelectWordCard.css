@@ -1,12 +1,12 @@
 .word-select-card {
   position: relative;
   perspective: 500px;
-  width: 250px;
-  height: 100px;
+  width: 200px;
+  height: 80px;
   background-size: cover;
   cursor: pointer;
   border-radius: 20px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: rgb(44, 42, 42);
   transition: 0.3s;

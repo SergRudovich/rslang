@@ -7,8 +7,8 @@ function SelectWordCard(word) {
   const difficulty = (word.difficulty === wordStatus.normal) ? false : true;
 
   const statusColor = {
-    [wordStatus.difficult]: '#ED4F32',
-    [wordStatus.learned]: 'green',
+    [wordStatus.difficult]: '#bd3939',
+    [wordStatus.learned]: '#52b345',
     [wordStatus.normal]: word.categoryColor,
   }
 

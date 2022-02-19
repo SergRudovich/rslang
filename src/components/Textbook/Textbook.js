@@ -13,7 +13,7 @@ function Textbook() {
   const user = useSelector(state => state.user);
 
   return (
-    <div className='textbook-wrapper'>
+    <div className='textbook-wrapper container'>
       <h1><Link to="/textbook">Учебник</Link>
         {user &&
           <>

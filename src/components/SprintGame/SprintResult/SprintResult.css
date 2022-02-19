@@ -2,11 +2,15 @@
   margin-right: 20px;
 }
 
+.sprint-result-btn{
+  display: flex;
+}
+
 .result-list-container {
   display: flex;
   flex-direction: column;
   width: 800px;
-  height: 800px;
+  height: 600px;
   background-color: bisque;
   padding: 20px;
   margin: 20px;
@@ -29,14 +33,14 @@
 .result-list-label div {
   font-size: 1.5rem;
   width: 50px;
-  background-color: brown;
+  background-color: var(--danger);
   text-align: center;
   color: aliceblue;
   border-radius: 25%;
 }
 
 .correct-color {
-  background-color: darkcyan !important;
+  background-color: var(--success) !important;
 }
 
 .result-list-item {

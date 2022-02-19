@@ -123,7 +123,7 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
           <span className='sprint-start-question_label'> ? </span>
         </div>
       }
-      <div className="btn-group answer-btns" role="group" aria-label="Basic mixed styles example">
+      <div className="sprint-result-btn">
         <button
           type="button"
           className="btn btn-success"

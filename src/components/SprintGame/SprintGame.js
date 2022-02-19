@@ -71,7 +71,7 @@ function SprintGame() {
   }
 
   return (
-    <div className='sprint-container'>
+    <div className='container sprint-container main__screen'>
       {game.isStart && <StartSprint
         handlePlayGame={handlePlayGame}
         from={from}

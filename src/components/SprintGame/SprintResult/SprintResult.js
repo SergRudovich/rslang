@@ -15,14 +15,14 @@ function SprintResult({ gameResult, playAgain, wrongWords, correctWords }) {
         correctWords={correctWords}
         wrongWords={wrongWords}
       />
-      <div className="btn-group sprint-result-btn" role="group" aria-label="Basic mixed styles example">
+      <div className="sprint-result-btn">
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn"
           onClick={playAgain}
         >Играть еще раз</button>
         <Link to="/textbook">
-          <button type="button" className="btn btn-primary">Перейти в учебник</button>
+          <button type="button" className="btn">Перейти в учебник</button>
         </Link>
       </div>
     </>

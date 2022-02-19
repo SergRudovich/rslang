@@ -19,11 +19,11 @@
 }
 
 .sprint-start-countY {
-  color: darkgreen;
+  color: var(--success);
 }
 
 .sprint-start-countN {
-  color: brown;
+  color: var(--danger);
 }
 
 .sprint-start-question {
@@ -32,11 +32,11 @@
   margin: 20px;
   margin-bottom: 100px;
   max-width: 1500px;
-  color: darkgreen;
+  color: var(--success);
 }
 
 .sprint-start-question_label {
-  color: brown;
+  color: var(--danger);
 }
 
 

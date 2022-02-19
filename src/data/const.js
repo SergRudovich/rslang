@@ -23,4 +23,4 @@ export const gameName = {
   audiocall: 'audiocall',
 }
 
-export const CATEGORY_COLOR = ['#b2e15f', '#73b3e1', '#6c70de', '#f78278', '#d5bd65', '#c5a334', '#b8b8b8'];
+export const CATEGORY_COLOR = ['#ecc8c9', '#c6a78f', '#a0b3a8', '#f7d8b6', '#ebb2cd', '#dcebb2', '#9999bb'];

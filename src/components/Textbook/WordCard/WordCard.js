@@ -76,15 +76,18 @@ function WordCard(props) {
       {(user && wordsCategory !== DIFFICULT_CATEGORY) &&
         <>
           <button
+            className='btn'
             onClick={addDifficulty}
           >Сложное</button>
           <button
+            className='btn'
             onClick={addLearned}
           >Изученное</button>
         </>
       }
       {(wordsCategory === DIFFICULT_CATEGORY) &&
         <button
+          className='btn'
           onClick={removeDifficulty}
         >Удалить из сложных</button>
       }
