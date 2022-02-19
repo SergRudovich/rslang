@@ -76,8 +76,8 @@ function Register() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="card bg-light mb-3 auth-form-wrapper">
+    <div className="auth-page container main__screen">
+      <div className="auth-form-wrapper">
         <div className="card-body">
           <div className="text-center">
             <img
