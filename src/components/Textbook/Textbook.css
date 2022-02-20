@@ -1,3 +1,13 @@
 .textbook-wrapper {
   padding: 20px;
 }
+
+.game-card__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  padding: 50px;
+}

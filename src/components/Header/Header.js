@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../services/authService";
 
@@ -20,7 +20,6 @@ function Header() {
         </NavLink>
         <nav>
           <ul className="navigation">
-
             <li>
               <NavLink to="/team-about">О команде</NavLink>
             </li>
@@ -29,12 +28,10 @@ function Header() {
                 Учебник
               </NavLink>
             </li>
-
             <li>
-              <NavLink to="/sprint" className="btn btn--dark">
+              <NavLink to="/sprint?from=menu" className="btn btn--dark">
                 Игра «Cпринт»
               </NavLink>
-
             </li>
             <li>
               <NavLink to="/audiocall" className="btn btn--dark">
@@ -56,13 +53,6 @@ function Header() {
           ) : (
             <button className="btn btn--outline-light" onClick={handleLogout}>Выйти</button>
           )}
-          {/* <h3>
-            {user ? (
-              <span>Привет: {user.email && user.email}</span>
-            ) : (
-              <span></span>
-            )}
-          </h3> */}
         </div>
       </div>
     </header>

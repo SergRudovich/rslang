@@ -7,3 +7,7 @@
 .word-learned-wrapper > div {
   margin: 10px;
 }
+
+.word-learned-link {
+  color: var(--accent-dark2);
+}

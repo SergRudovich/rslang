@@ -35,7 +35,7 @@ function Paginate() {
         pageRangeDisplayed={5}
         onPageChange={handlePageChange}
         containerClassName="pagination"
-        activeClassName="active"
+        activeClassName="paginate_active"
       />
     </div>
   );
