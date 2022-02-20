@@ -7,7 +7,7 @@ function ResultList({ wrongWords, correctWords }) {
   return (
     <div className='result-list-container'>
       <div className='result-list-label'>
-        <span>Ошибок в словах:</span> 
+        <span>Ошибок в словах:</span>
         <div>{wrongWords.size}</div>
       </div>
       {Array.from(wrongWords.keys()).map(word =>
@@ -20,7 +20,7 @@ function ResultList({ wrongWords, correctWords }) {
       )}
       <div className='result-list-line'></div>
       <div className='result-list-label'>
-        <span>Правильных слов:</span> 
+        <span>Правильных слов:</span>
         <div className='correct-color'>{correctWords.size}</div>
       </div>
       {Array.from(correctWords.keys()).map(word =>
