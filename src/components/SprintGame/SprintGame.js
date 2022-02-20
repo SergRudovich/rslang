@@ -7,10 +7,11 @@ import SprintResult from './SprintResult/SprintResult';
 import { useSearchParams } from "react-router-dom";
 import { setSprintSequence } from '../../store/actions';
 import { createUserWord } from '../../services/wordsService';
-import { gameName } from '../../data/const';
+import { gameName, ATTEMPTS_TO_LEARNED, wordStatus } from '../../data/const';
 
 let correctWords = new Map();
 let wrongWords = new Map();
+let learnedWords = new Set();
 
 function SprintGame() {
 
@@ -43,6 +44,12 @@ function SprintGame() {
         };
         dispatch(createUserWord(user.userId, word.id, userWord, user.token));
       }
+      for (let word of learnedWords) {
+        const userWord = {
+          difficulty: wordStatus.learned,
+        }
+        dispatch(createUserWord(user.userId, word.id, userWord, user.token));
+      }
     }
     setGame({ isResult: true });
     setGameResult(result);
@@ -51,6 +58,7 @@ function SprintGame() {
   const playAgain = () => {
     correctWords = new Map();
     wrongWords = new Map();
+    learnedWords = new Set();
     setGame({ isStart: true });
   }
 
@@ -60,14 +68,24 @@ function SprintGame() {
     } else {
       wrongWords.set(word, 1);
     }
+    delLearnedWord(word);
   }
 
   const setCorrectWord = (word) => {
     if (correctWords.has(word)) {
       correctWords.set(word, correctWords.get(word) + 1);
+      if (correctWords.get(word) >= ATTEMPTS_TO_LEARNED) setLearnedWord(word);
     } else {
       correctWords.set(word, 1);
     }
+  }
+
+  const setLearnedWord = (word) => {
+    learnedWords.add(word);
+  }
+
+  const delLearnedWord = (word) => {
+    learnedWords.delete(word);
   }
 
   return (
