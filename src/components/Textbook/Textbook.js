@@ -16,10 +16,12 @@ function Textbook() {
   const user = useSelector(state => state.user);
 
   return (
+
     <div className="textbook-wrapper">
       <h1>
         <Link to="/textbook">Учебник</Link>
         {user && (
+
           <>
             <span> | </span>
             <Link to="/learned">Изученные слова </Link>
@@ -30,10 +32,14 @@ function Textbook() {
       <WordCategories />
       <h1>Слова</h1>
       <Words />
-      {wordsCategory !== DIFFICULT_CATEGORY && <Paginate />}
-      <h1>Игры</h1>
-      <h3>Закрепи изученное играючи</h3>
-      <div className="game-card__container">
+
+      {wordsCategory !== DIFFICULT_CATEGORY &&
+        <>
+          <Paginate />
+          <h1>Игры</h1>
+          <h3><Link to="/sprint?from=textbook">Спринт</Link></h3>
+          <h3><Link to="/audiocall">Аудиовызов</Link></h3>
+    <div className="game-card__container">
         <Link to="/sprint">
           <GameCard
             gameName="Спринт"
@@ -51,6 +57,9 @@ function Textbook() {
           ></GameCard>
         </Link>
       </div>
+        </>
+      }
+
     </div>
   );
 }

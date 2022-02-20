@@ -126,6 +126,14 @@ a.active {
   transform: rotateX(-180deg); */
 }
 
+.btn-success {
+  background-color: var(--success);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+}
+
 .title-1 {
   font-size: 34px;
   margin: 0 0 20px 0;
