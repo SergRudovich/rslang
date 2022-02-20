@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../services/authService";
 
@@ -15,31 +15,41 @@ function Header() {
   return (
     <header className="header">
       <div className="container header__container">
-        <Link to="/" className="logo">
+        <NavLink to="/" className="logo">
           RS <span className="color-accent-light">Lang</span>
-        </Link>
+        </NavLink>
         <nav>
           <ul className="navigation">
             <li>
-              <Link to="/team-about">О команде</Link>
+              <NavLink to="/team-about">О команде</NavLink>
             </li>
-            <li className="btn">
-              <Link to="/textbook">Учебник слов</Link>
+            <li>
+              <NavLink to="/textbook" className="btn">
+                Учебник
+              </NavLink>
             </li>
-            <li className="btn btn--dark">
-              <Link to="/sprint">Игра «Cпринт»</Link>
+            <li>
+              <NavLink to="/sprint" className="btn btn--dark">
+                Игра «Cпринт»
+              </NavLink>
             </li>
-            <li className="btn btn--dark ">
-              <Link to="/audiocall">Игра «Аудиовызов»</Link>
+            <li>
+              <NavLink to="/audiocall" className="btn btn--dark">
+                Игра «Аудиовызов»
+              </NavLink>
             </li>
-            <li className="btn ">
-              <Link to="/statistic">Статистика</Link>
+            <li>
+              <NavLink to="/statistic" className="btn btn--outline-dark">
+                Статистика
+              </NavLink>
             </li>
           </ul>
         </nav>
         <div className="header__autorization">
           {!user ? (
-            <Link to="/authorization" className="btn btn--outline-light">Войти</Link>
+            <NavLink to="/authorization" className="btn btn--outline-light">
+              Войти
+            </NavLink>
           ) : (
             <button onClick={handleLogout}>Войти?</button>
           )}
