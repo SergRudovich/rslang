@@ -1,4 +1,4 @@
-import { API_URL, Http, gameName } from "../data/const";
+import { API_URL, Http, gameName, wordStatus } from "../data/const";
 import {
   setWords,
   setUserWords,
@@ -57,7 +57,7 @@ const createUserWord = (userId, wordId, word, token) => async (dispatch) => {
   const response = await getUserWord(userId, wordId, token);
   if (response.status === 404) {
     const userWord = {
-      difficulty: 'normal',
+      difficulty: wordStatus.normal,
       optional: {
         [gameName.sprint]: {
           new: '',

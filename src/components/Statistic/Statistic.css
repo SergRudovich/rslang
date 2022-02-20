@@ -1,0 +1,16 @@
+.statistic-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.statistic-wrapper h3 {
+  margin-bottom: 10px;
+}
+
+.statistic-wrapper span {
+  font-weight: 700;
+  font-size: 1rem;
+}
