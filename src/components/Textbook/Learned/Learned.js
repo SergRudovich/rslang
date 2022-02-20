@@ -31,29 +31,34 @@ function Learned() {
   return (
     <div className='textbook-wrapper main__screen container'>
       <h1><Link to="/textbook">Учебник</Link>
-        {user &&
-          <>
-            <span> | </span>
-            <Link to="/learned">Изученные слова </Link>
-          </>
-        }
+        <>
+          <span> | </span>
+          <Link to="/learned"><span className='word-learned-link'>Изученные слова </span></Link>
+        </>
       </h1>
+      {!user &&
       <div className='word-learned-wrapper'>
-        {words.map((word) =>
-          <SelectWordCard
-            key={word._id}
-            id={word._id}
-            word={word.word}
-            isActive={false}
-            wordTranslate={word.wordTranslate}
-            categoryColor={'beige'}
-            handleSelectWord={removeLearnedWord}
-            difficulty={null}
-            inLearned={true}
-          />
-        )
-        }
+        <h2>Доступно только для авторизованных пользователей</h2>
       </div>
+      }
+      {user &&
+        <div className='word-learned-wrapper'>
+          {words.map((word) =>
+            <SelectWordCard
+              key={word._id}
+              id={word._id}
+              word={word.word}
+              isActive={false}
+              wordTranslate={word.wordTranslate}
+              categoryColor={'beige'}
+              handleSelectWord={removeLearnedWord}
+              difficulty={null}
+              inLearned={true}
+            />
+          )
+          }
+        </div>
+      }
     </div>
   );
 }

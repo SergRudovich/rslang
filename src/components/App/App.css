@@ -6,7 +6,7 @@
 
   --accent-p4321-1: #e48826;
   --accent-p4321-2: #bb99b7;
-  --accent-p4321-3: #ecc8c9 ;
+  --accent-p4321-3: #ecc8c9;
   --accent-p4321-4: #c6a78f;
   --accent-p4321-5: #a0b3a8;
 
@@ -19,10 +19,10 @@
   --danger: #bd3939;
   --success: #52b345;
   --white: #fff;
-  --font-dark: #222222; 
-  --font-family-accent: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  --font-dark: #222222;
+  --font-family-accent: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   /* --font-family-accent2: 'Noto Serif', serif; */
-  --font-family-accent2: 'Alice', serif;
+  --font-family-accent2: "Alice", serif;
 
   --font1: 80px;
   --font2: 32px;
@@ -32,7 +32,7 @@
 * {
   margin: 0;
   padding: 0;
-	border: 0;
+  border: 0;
   box-sizing: border-box;
 }
 
@@ -49,11 +49,11 @@ a:hover {
   text-decoration: none;
 }
 /* ====== /reset css ====== */
-html{
+html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: 'Roboto', 'Arial', sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   font-weight: 400;
   line-height: 1.4;
   font-size: 18px;
@@ -61,7 +61,7 @@ body {
   background-color: var(--accent-p4321-6);
 }
 
-a{
+a {
   transition: color 0.3s;
 }
 
@@ -75,7 +75,7 @@ a.active {
   margin: 0 auto;
   padding: 30px 20px;
 }
-.main__screen { 
+.main__screen {
   min-height: calc(100vh - 97px - 77px - 2px);
 }
 
@@ -97,6 +97,7 @@ a.active {
 .btn a:hover,
 .btn a:active {
   color: var(--white);
+  width: 100px;
 }
 
 .btn--outline-light {
@@ -199,16 +200,16 @@ a.active {
 }
 /* ====== /bg-colors ====== */
 .color-accent-light {
-  color: var(--accent-p4321-1)
+  color: var(--accent-p4321-1);
 }
 .color-accent-dark {
-  color: var(--accent-dark2)
+  color: var(--accent-dark2);
 }
 .color-danger {
-  color: var(--danger)
+  color: var(--danger);
 }
 .color-success {
-  color: var(--success)
+  color: var(--success);
 }
 
 /* ====== examples ====== */
@@ -220,7 +221,7 @@ a.active {
   align-items: center;
   margin: 20px 0;
 }
-.ex{
+.ex {
   display: flex;
   align-items: center;
   width: 200px;

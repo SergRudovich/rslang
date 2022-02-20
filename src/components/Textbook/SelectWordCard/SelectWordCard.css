@@ -2,11 +2,11 @@
   position: relative;
   perspective: 500px;
   width: 200px;
-  height: 80px;
+  height: 100px;
   background-size: cover;
   cursor: pointer;
   border-radius: 20px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 700;
   color: rgb(44, 42, 42);
   transition: 0.3s;
@@ -45,5 +45,10 @@
   position: absolute;
   top: 7px;
   left: 20px;
+  font-size: 0.8rem;
+}
+
+.word-card-addition {
+  font-weight: normal;
   font-size: 0.8rem;
 }

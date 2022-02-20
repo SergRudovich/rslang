@@ -20,12 +20,12 @@ function TeamAbout() {
               </div>
             </div>
             <div className="about-team__github">
-              <a href="https://github.com/SergRudovich" target="_blank">
+              <a href="https://github.com/SergRudovich" target="_blank" rel="noreferrer">
                 SergRudovich
               </a>
             </div>
             <div className="about-team__contribution">
-              Разработал «Учебник» со словами, игру «Аудиовызов», авторизацию
+              Разработал «Учебник» со словами, игру «Спринт», авторизацию
               пользователей в приложении, роутинг по страницам
             </div>
           </div>
@@ -39,7 +39,7 @@ function TeamAbout() {
               </div>
             </div>
             <div className="about-team__github">
-              <a href="https://github.com/avshir" target="_blank">
+              <a href="https://github.com/avshir" target="_blank" rel="noreferrer">
                 avshir
               </a>
             </div>
@@ -59,12 +59,12 @@ function TeamAbout() {
               </div>
             </div>
             <div className="about-team__github">
-              <a href="https://github.com/LappoAndrey" target="_blank">
+              <a href="https://github.com/LappoAndrey" target="_blank" rel="noreferrer">
                 LappoAndrey
               </a>
             </div>
             <div className="about-team__contribution">
-              Настроил получение данных с бэкэнда, разрботал игру «Cпринт»
+              Настроил получение данных с бэкэнда, разработал игру «Аудиовызов»
             </div>
           </div>
         </div>
