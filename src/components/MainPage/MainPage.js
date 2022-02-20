@@ -34,6 +34,10 @@ function MainPage() {
           </div>
         </div>
 
+        <h1 className="title-1">Команда разработчиков title-1</h1>
+        <h1 className="title-2">Команда разработчиков title-2</h1>
+        <h3 className="title-3">Команда разработчиков title-3</h3>
+        <h3 className="title-4">Команда разработчиков title-4</h3>
         <div className="examples">
           <div className="ex bg-color-1">
             var(--accent-p4321-1) ТОЛЬКО для ярких элементов

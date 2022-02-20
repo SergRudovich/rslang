@@ -10,7 +10,9 @@
 }
 .logo {
   display: block;
-  font-size: 36px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 .logo span {
   color: var(--accent-p4321-1);
@@ -18,8 +20,9 @@
 }
 .logo:hover   {
   color: inherit;
-  /* transition: 0.8s;
-  transform: rotateX(-360deg); */
+  
+  transition: 1s;
+  transform: rotateX(-360deg);
 }
 .logo:hover span  {
   color: var(--accent-dark2);
@@ -30,6 +33,6 @@
   align-items: center;
 }
 .navigation li {
-  margin: 0 6px;
+  margin: 0 8px;
 }
 

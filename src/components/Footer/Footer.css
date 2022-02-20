@@ -17,14 +17,16 @@
 .footer__rss-image {
   display: block;
   width: 65px;
+  margin: 0 5px 0 0;
 }
 .footer__rss-image img {
   max-width: 100%;
 }
 .footer__copyright {
 }
-.footer__github-image {
+.footer__github-team .footer__github-image {
   width: 30px;
+  margin: 0 15px 0 0;
 }
 .footer__github-image img {
   max-width: 100%;
@@ -37,6 +39,25 @@
   align-items: center;
 }
 .footer__github-team li {
-  margin: 0 5px;
+  position: relative;
+}
+.decor-circle-dark {
+  position: relative;
+  padding: 0 0 0 24px;
+}
+.decor-circle-dark::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background-color: var(--font-dark);
+}
+
+.footer__github-team a:hover {
+  color: var(--white);
+  transition: 0.5s;
 }
 /* ====== /footer ====== */

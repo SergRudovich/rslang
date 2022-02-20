@@ -17,8 +17,8 @@ function Footer() {
           </a>
           <div className="footer__copyright">&copy; 2022</div>
         </div>
+        <div className="footer__rss-team">created by team-50</div>
         <div className="footer__column">
-          <div className="footer__rss-team">created by team-50</div>
           <ul className="footer__github-team">
             <li className="footer__github-image">
               <img src={githubLogo} alt="github logo"></img>
@@ -28,14 +28,14 @@ function Footer() {
                 SergRudovich
               </a>
             </li>
-            <li>
-              <a href="https://github.com/LappoAndrey" target="_blank">
-                LappoAndrey
-              </a>
-            </li>
-            <li>
+            <li className="decor-circle-dark">
               <a href="https://github.com/avshir" target="_blank">
                 avshir
+              </a>
+            </li>
+            <li className="decor-circle-dark">
+              <a href="https://github.com/LappoAndrey" target="_blank">
+                LappoAndrey
               </a>
             </li>
           </ul>

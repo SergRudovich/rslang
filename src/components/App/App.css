@@ -21,7 +21,8 @@
   --white: #fff;
   --font-dark: #222222; 
   --font-family-accent: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  --font-family-accent2: 'Roboto Serif', serif;
+  /* --font-family-accent2: 'Noto Serif', serif; */
+  --font-family-accent2: 'Alice', serif;
 
   --font1: 80px;
   --font2: 32px;
@@ -52,7 +53,7 @@ html{
   scroll-behavior: smooth;
 }
 body {
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: 'Roboto', 'Arial', sans-serif;
   font-weight: 400;
   line-height: 1.4;
   font-size: 18px;
@@ -61,17 +62,21 @@ body {
 }
 
 a{
-  transition: color 0.5s;
+  transition: color 0.3s;
 }
 
 a:hover,
-a:active {
+a:active,
+a.active {
   color: var(--accent-dark2);
 }
 .container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 30px 20px;
+}
+.main__screen { 
+  min-height: calc(100vh - 97px - 77px - 2px);
 }
 
 .btn {
@@ -80,12 +85,20 @@ a:active {
   color: var(--font-dark);
   background-color: var(--accent-p4321-1);
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 1.2;
   text-align: center;
   border-radius: 12px;
   border: 2px solid transparent;
   padding: 14px 16px;
+
+  transition: 0.3s;
 }
+
+.btn a:hover,
+.btn a:active {
+  color: var(--white);
+}
+
 .btn--outline-light {
   color: var(--font-dark);
   background-color: transparent;
@@ -103,7 +116,8 @@ a:active {
 }
 
 .btn:hover,
-.btn:active {
+.btn:active,
+.btn.active {
   color: var(--white);
   background-color: var(--accent-dark2);
   border: 2px solid transparent;
@@ -122,16 +136,20 @@ a:active {
 
 .title-1 {
   font-size: 34px;
-  margin: 0 0 25px 0;
+  margin: 0 0 20px 0;
 }
 
 .title-2 {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
 }
 .title-3 {
   font-size: 28px;
+  margin: 0 0 10px 0;
+}
+.title-4 {
+  font-size: 26px;
   margin: 0 0 10px 0;
 }
 
@@ -213,11 +231,6 @@ a:active {
 }
 /* ====== /examples ====== */
 
-
-.main__screen { 
-  min-height: calc(100vh - 190px);
-  padding: 30px 0;
-}
 /* ======= media ====== */
 
 /* ======= /media ====== */
