@@ -11,6 +11,7 @@ const initialState = {
   wordsPage: savedWordsPage ? savedWordsPage : 0,
   wordsCategory: savedWordsCategory ? savedWordsCategory : 0,
   isSpinner: false,
+  sprintSequence: 0,
 };
 
 const appReducer = (state = initialState, action) => {
@@ -60,6 +61,11 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         isSpinner: false,
+      };
+    case actions.SET_SPRINT_SEQUENCE:
+      return {
+        ...state,
+        sprintSequence: (state.sprintSequence < payload) ? payload : state.sprintSequence,
       };
     default:
       return state;

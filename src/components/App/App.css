@@ -1,0 +1,223 @@
+:root {
+  /* https://color.romanuke.com/czvetovaya-palitra-4321/ */
+  --bg-dark: #030303;
+  --accent-dark1: #a435f0;
+  --accent-dark2: #7325a3; /* hover */
+
+  --accent-p4321-1: #e48826;
+  --accent-p4321-2: #bb99b7;
+  --accent-p4321-3: #ecc8c9 ;
+  --accent-p4321-4: #c6a78f;
+  --accent-p4321-5: #a0b3a8;
+
+  --accent-p4321-6: #c6a78f2b; /*super light #c6a78f c 0.3 или rgba(199, 167, 143, 0.3) */
+  --accent-p4321-7: #f7d8b6;
+  --accent-p4321-8: #ebb2cd;
+  --accent-p4321-9: #dcebb2;
+  --accent-p4321-10: #9999bb;
+
+  --danger: #bd3939;
+  --success: #52b345;
+  --white: #fff;
+  --font-dark: #222222; 
+  --font-family-accent: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  --font-family-accent2: 'Roboto Serif', serif;
+
+  --font1: 80px;
+  --font2: 32px;
+}
+
+/* ====== reset css ====== */
+* {
+  margin: 0;
+  padding: 0;
+	border: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+}
+/* ====== /reset css ====== */
+html{
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 18px;
+  color: var(--font-dark);
+  background-color: var(--accent-p4321-6);
+}
+
+a{
+  transition: color 0.5s;
+}
+
+a:hover,
+a:active {
+  color: var(--accent-dark2);
+}
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: block;
+  cursor: pointer;
+  color: var(--font-dark);
+  background-color: var(--accent-p4321-1);
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  padding: 14px 16px;
+}
+.btn--outline-light {
+  color: var(--font-dark);
+  background-color: transparent;
+  border: 2px solid var(--accent-p4321-1);
+}
+.btn--outline-dark {
+  color: var(--font-dark);
+  background-color: transparent;
+  border: 2px solid var(--accent-p4321-2);
+}
+.btn--dark {
+  color: var(--font-dark);
+  background-color: var(--accent-p4321-2);
+  border: 2px solid var(--accent-p4321-2);
+}
+
+.btn:hover,
+.btn:active {
+  color: var(--white);
+  background-color: var(--accent-dark2);
+  border: 2px solid transparent;
+
+  /* transition: all 0.5s;
+  transform: rotateX(-180deg); */
+}
+
+.btn-success {
+  background-color: var(--success);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+}
+
+.title-1 {
+  font-size: 34px;
+  margin: 0 0 25px 0;
+}
+
+.title-2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+.title-3 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+}
+
+/* ====== bg-colors ====== */
+.bg-color-1 {
+  background-color: var(--accent-p4321-1);
+}
+.bg-color-2 {
+  background-color: var(--accent-p4321-2);
+}
+.bg-color-3 {
+  background-color: var(--accent-p4321-3);
+}
+.bg-color-4 {
+  background-color: var(--accent-p4321-4);
+}
+.bg-color-5 {
+  background-color: var(--accent-p4321-5);
+}
+.bg-color-6 {
+  background-color: var(--accent-p4321-6);
+}
+.bg-color-7 {
+  background-color: var(--accent-p4321-7);
+}
+.bg-color-8 {
+  background-color: var(--accent-p4321-8);
+}
+.bg-color-9 {
+  background-color: var(--accent-p4321-9);
+}
+.bg-color-10 {
+  background-color: var(--accent-p4321-10);
+}
+.bg-color-11 {
+  color: var(--font-dark);
+  background-color: var(--accent-dark1);
+}
+.bg-color-dark {
+  background-color: var(--accent-dark2);
+}
+.bg-color-danger {
+  background-color: var(--danger);
+}
+.bg-color-success {
+  background-color: var(--success);
+}
+/* ====== /bg-colors ====== */
+.color-accent-light {
+  color: var(--accent-p4321-1)
+}
+.color-accent-dark {
+  color: var(--accent-dark2)
+}
+.color-danger {
+  color: var(--danger)
+}
+.color-success {
+  color: var(--success)
+}
+
+/* ====== examples ====== */
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  /* display: none; */
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+.ex{
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 700;
+}
+/* ====== /examples ====== */
+
+
+.main__screen { 
+  min-height: calc(100vh - 190px);
+  padding: 30px 0;
+}
+/* ======= media ====== */
+
+/* ======= /media ====== */

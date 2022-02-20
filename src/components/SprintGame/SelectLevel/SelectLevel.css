@@ -1,0 +1,26 @@
+.sprint-level-container {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.sprint-level-container div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.sprint-level-container div:hover {
+  opacity: 1 !important;
+  transform: scale(1.2) !important;
+}
+

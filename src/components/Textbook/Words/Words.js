@@ -4,13 +4,12 @@ import SelectWordCard from '../SelectWordCard/SelectWordCard';
 import { useDispatch, useSelector } from "react-redux";
 import { getWords, getUserWordsFiltered, getUserWords } from '../../../services/wordsService';
 import WordCard from '../WordCard/WordCard';
-import { DIFFICULT_CATEGORY } from '../../../data/const';
+import { DIFFICULT_CATEGORY, CATEGORY_COLOR } from '../../../data/const';
 import getFilter from '../../../helpers/filters';
 import { wordStatus } from '../../../data/const';
 
 function Words() {
 
-  const categoryColor = ['#b2e15f', '#73b3e1', '#6c70de', '#f78278', '#d5bd65', '#c5a334', '#b8b8b8'];
   const dispatch = useDispatch();
   const words = useSelector(state => state.words);
   const user = useSelector(state => state.user);
@@ -58,7 +57,7 @@ function Words() {
               category={wordsCategory}
               isActive={(index === selectedWordId) ? true : false}
               wordTranslate={word.wordTranslate}
-              categoryColor={categoryColor[wordsCategory]}
+              categoryColor={CATEGORY_COLOR[wordsCategory]}
               handleSelectWord={handleSelectWord}
               difficulty={getWordStatus(word.id)}
             />
