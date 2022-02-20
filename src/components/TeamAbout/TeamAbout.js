@@ -1,45 +1,70 @@
-import React from 'react';
-import './TeamAbout.css';
-// import RssLogo from './../../assets/svg/rs_school.svg';
-// import githubLogo from './../../assets/svg/icons8-github.svg';
+import React from "react";
+import "./TeamAbout.css";
 
 function TeamAbout() {
   return (
     <article className="about-team bg-color-5">
       <div className="container main__screen ">
-        <h2 className="title-2">О команде разработчиков</h2>
+        <h1 className="title-2">Команда разработчиков</h1>
+        <p className="about-team__text">
+          Приложение разрабатывали с использованием библиотеки React + Redux
+        </p>
         <div className="about-team__row">
           <div className="about-team__item">
-            <div className="about-team__foto">Sergey Rudovich</div>
+            <div className="about-team__foto">
+              <div className="about-team__card-text">
+                <p>
+                  <span>Sergey</span> Rudovich
+                </p>
+                <p className="about-team__role">team lead, developer</p>
+              </div>
+            </div>
             <div className="about-team__github">
               <a href="https://github.com/SergRudovich" target="_blank">
                 SergRudovich
               </a>
             </div>
             <div className="about-team__contribution">
-              Team lead, Далеко-далеко за словесными, горами в стране гласных
+              Разработал «Учебник» со словами, игру «Аудиовызов», авторизацию
+              пользователей в приложении, роутинг по страницам
             </div>
           </div>
           <div className="about-team__item">
-            <div className="about-team__foto">Anna Shirinskaya</div>
+            <div className="about-team__foto">
+              <div className="about-team__card-text">
+                <p>
+                  <span>Anna</span> Shirinskaya
+                </p>
+                <p className="about-team__role">developer</p>
+              </div>
+            </div>
             <div className="about-team__github">
               <a href="https://github.com/avshir" target="_blank">
                 avshir
               </a>
             </div>
             <div className="about-team__contribution">
-              Team lead, Далеко-далеко за словесными, горами в стране гласных
+              Разработала UI и дизайн приложения, глобальные стили, главную
+              страницу, о команде, header, footer, доработала роутинг по
+              страницам
             </div>
           </div>
           <div className="about-team__item">
-            <div className="about-team__foto">Andrey Lappo</div>
+            <div className="about-team__foto">
+              <div className="about-team__card-text">
+                <p>
+                  <span>Andrey</span> Lappo
+                </p>
+                <p className="about-team__role">developer</p>
+              </div>
+            </div>
             <div className="about-team__github">
               <a href="https://github.com/LappoAndrey" target="_blank">
                 LappoAndrey
               </a>
             </div>
             <div className="about-team__contribution">
-              Team lead, Далеко-далеко за словесными, горами в стране гласных
+              Настроил получение данных с бэкэнда, разрботал игру «Cпринт»
             </div>
           </div>
         </div>
