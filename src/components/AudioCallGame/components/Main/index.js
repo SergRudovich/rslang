@@ -34,7 +34,6 @@ class Main extends React.Component {
   }
   
   setFrom = () => {
-	console.log('!!!!!!!!!!!!')
 	const [searchParams] = useSearchParams();
 	const from = searchParams.get('from');
 	this.setState({ from: +from });
@@ -47,7 +46,7 @@ class Main extends React.Component {
 
   render() {
     const {
-      levelAPI, // TODO for ARI
+      levelAPI,
       numberAnswers,
       isStart,
 	  from,
@@ -61,7 +60,7 @@ class Main extends React.Component {
         setNumberAnswers={this.setNumberAnswers}
         handleSubmitForm={this.handleSubmitForm}
 		setFrom={this.setFrom}
-        levelAPI={levelAPI} // TODO for API
+        levelAPI={levelAPI} 
         numberAnswers={numberAnswers}
         isStart={isStart}
 		from={from}
