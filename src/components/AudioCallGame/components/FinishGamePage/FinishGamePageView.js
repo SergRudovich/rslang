@@ -10,7 +10,7 @@ import FinishGameItem from '../FinishGameItem';
 import { useDispatch, useSelector } from "react-redux";
 import { createUserWord } from '../../../../services/wordsService';
 import { gameName } from '../../../../data/const';
-import {setAudiocallSequence} from '../../../../store/actions';
+import { setAudiocallSequence } from '../../../../store/actions';
 import getRandomNum from '../../../../helpers/getRandomNum';
 
 const FinishGamePageView = ({ errorAnswerArray, rightAnswerArray, handleClickNewGame }) => {
@@ -19,7 +19,7 @@ const FinishGamePageView = ({ errorAnswerArray, rightAnswerArray, handleClickNew
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setAudiocallSequence(getRandomNum(2, 5)));
+    // dispatch(setAudiocallSequence(getRandomNum(2, 5)));
     if (user) {
       for (let word of errorAnswerArray) {
         const userWord = {
@@ -38,34 +38,14 @@ const FinishGamePageView = ({ errorAnswerArray, rightAnswerArray, handleClickNew
     }
   }, []);
 
-  const generateItemsWords = (array) => {
-    // dispatch(setAudiocallSequence(getRandomNum(2, 5)));
-    // if (user) {
-    //   for (let word of errorAnswerArray) {
-    //     const userWord = {
-    //       game: gameName.audiocall,
-    //       yes: 1,
-    //     };
-    //     dispatch(createUserWord(user.userId, word.id, userWord, user.token));
-    //   }
-    //   for (let word of rightAnswerArray) {
-    //     const userWord = {
-    //       game: gameName.audiocall,
-    //       no: 1,
-    //     };
-    //     dispatch(createUserWord(user.userId, word.id, userWord, user.token));
-    //   }
-    // }
-
-    return (
-      array.length !== 0 && array.map((word) => (
-        <FinishGameItem
-          key={word.id}
-          word={word}
-        />
-      ))
-    );
-  }
+  const generateItemsWords = (array) => (
+    array.length !== 0 && array.map((word) => (
+      <FinishGameItem
+        key={word.id}
+        word={word}
+      />
+    ))
+  );
 
   return (
     <>
