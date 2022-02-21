@@ -10,6 +10,7 @@ export const SPRINT_TIMER = 30;
 export const MAX_WORD_PAGES = 30;
 export const MAX_WORDS_IN_PAGE = 20;
 export const MAX_LEVEL = 12;
+export const ATTEMPTS_TO_LEARNED = 3;
 export const Http = {
   POST: 'POST',
   PUT: 'PUT',
@@ -68,6 +69,12 @@ const gamesData = {
     path: 'audiocall',
   }
 };
+
+export const FRONT_CARD = {
+  en: 'en',
+  ru: 'ru',
+  en_ru: 'en_ru'
+}
 
 
 

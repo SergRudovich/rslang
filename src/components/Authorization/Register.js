@@ -7,7 +7,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail, isPasswordLength, isRequired, isUsernameLength } from '../../helpers/validators';
 import avatar from '../../assets/img/auth_avatar.png';
-import {loginUser, createUser} from '../../services/authService';
+import { loginUser, createUser } from '../../services/authService';
 import { loginSuccess } from '../../store/actions';
 
 function Register() {
@@ -54,17 +54,17 @@ function Register() {
           setSuccessful(true);
           setErrMessage(message);
           dispatch(loginUser({ email, password }))
-          .then((loggedUser) => {
-            localStorage.setItem("user", JSON.stringify(loggedUser));
-            dispatch(loginSuccess(loggedUser));
-            return navigate('/');
-          })
-          .catch((err) => {
-            err.then(() => {
-              setMessage('Incorrect e-mail or password');
-              setLoading(false);
+            .then((loggedUser) => {
+              localStorage.setItem("user", JSON.stringify(loggedUser));
+              dispatch(loginSuccess(loggedUser));
+              return navigate('/');
             })
-          });
+            .catch((err) => {
+              err.then(() => {
+                setMessage('Incorrect e-mail or password');
+                setLoading(false);
+              })
+            });
         })
         .catch((err) => {
           err.then((message) => {
@@ -76,8 +76,8 @@ function Register() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="card bg-light mb-3 auth-form-wrapper">
+    <div className="auth-page container main__screen">
+      <div className="auth-form-wrapper">
         <div className="card-body">
           <div className="text-center">
             <img

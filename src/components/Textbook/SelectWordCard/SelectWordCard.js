@@ -44,6 +44,7 @@ return (
       onClick={() => word.handleSelectWord(word.id)}
     >
       {word.word}
+      <p className='word-card-addition'><i>{word.front}</i></p>
       {difficulty && statusAlert}
       {word.inLearned && delButton}
     </div>
@@ -51,6 +52,7 @@ return (
       onClick={() => word.handleSelectWord(word.id)}
     >
       {word.wordTranslate}
+      <p className='word-card-addition'><i>{word.back}</i></p>
       {difficulty && statusAlert}
       {word.inLearned && delButton}
     </div>

@@ -8,7 +8,11 @@ import getRandomNum from '../../../helpers/getRandomNum';
 let sequence = 0;
 let maxSequence = 0;
 
-function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
+function PlaySprint(props) {
+
+  const { getGameResult,
+    setCorrectWord,
+    setWrongWord} = props;
 
   const [gameCountY, setGameCountY] = useState(0);
   const [gameCountN, setGameCountN] = useState(0);
@@ -17,7 +21,6 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
   const [translate, setTranslate] = useState('');
   const [word, setWord] = useState('');
   const words = useSelector(state => state.words);
-  console.log(words)
   const [timerValue, setTimerValue] = useState(SPRINT_TIMER);
   const [isWord, setIsWord] = useState(false);
 
@@ -61,31 +64,26 @@ function PlaySprint({ getGameResult, setCorrectWord, setWrongWord }) {
     return () => clearInterval(interval);
   }, [timerValue]);
 
-  function handleYes() {
-    if (isTrueAnswer) {
-      sequence += 1;
-      if (sequence > maxSequence) maxSequence = sequence;
-      setGameCountY(gameCountY => gameCountY + 1);
-      setCorrectWord(currentWord);
-    } else {
+  const yes = () => {
+    sequence += 1;
+    if (sequence > maxSequence) maxSequence = sequence;
+    setGameCountY(gameCountY => gameCountY + 1);
+    setCorrectWord(currentWord);
+  }
+
+  const no = () => {
       sequence = 0;
       setGameCountN(gameCountN => gameCountN + 1);
       setWrongWord(currentWord);
-    }
+  }
+
+  function handleYes() {
+    (isTrueAnswer) ? yes() : no();
     getRundomWord();
   }
 
   function handleNo() {
-    if (isTrueAnswer) {
-      sequence = 0;
-      setGameCountN(gameCountN => gameCountN + 1);
-      setWrongWord(currentWord);
-    } else {
-      sequence += 1;
-      if (sequence > maxSequence) maxSequence = sequence;
-      setGameCountY(gameCountY => gameCountY + 1);
-      setCorrectWord(currentWord);
-    }
+    (isTrueAnswer) ? no() : yes();
     getRundomWord();
   }
 

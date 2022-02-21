@@ -46,7 +46,7 @@ function Authorization() {
           localStorage.setItem("user", JSON.stringify(loggedUser));
           dispatch(getUserWords(loggedUser.userId, loggedUser.token));
           dispatch(loginSuccess(loggedUser));
-          return navigate(-1);
+          return navigate('/textbook');
         })
         .catch((err) => {
           err.then(() => {
@@ -58,7 +58,7 @@ function Authorization() {
   };
 
   return (
-    <div className="auth-page">
+    <div className="auth-page container main__screen">
       <div className="card bg-light mb-3 auth-form-wrapper">
         <div className="card-body">
           <div className="text-center">
@@ -92,7 +92,7 @@ function Authorization() {
               />
             </div>
 
-            <div className="form-group d-flex justify-content-between">
+            <div className="form-group">
               <button className="btn btn-primary btn-block" disabled={loading}>
                 {loading && (
                   <span className="spinner-border spinner-border-sm"></span>

@@ -21,21 +21,21 @@ function Paginate() {
         forcePage={wordsPage}
         previousLabel="Previous"
         nextLabel="Next"
-        pageClassName="btn page-item"
-        pageLinkClassName="page-link"
-        previousClassName="btn--outline-light btn btn-paginate"
-        previousLinkClassName=""
-        nextClassName="btn--outline-light btn btn-paginate"
-        nextLinkClassName=""
+        pageClassName="page-item"
+        pageLinkClassName=" page-link"
+        previousClassName="page-item-btn"
+        previousLinkClassName="page-link-btn"
+        nextClassName="page-item-btn"
+        nextLinkClassName="page-link-btn"
         breakLabel="..."
-        breakClassName="btn page-item"
+        breakClassName="page-item"
         breakLinkClassName="page-link"
         pageCount={30}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageChange}
         containerClassName="pagination"
-        activeClassName="active"
+        activeClassName="paginate_active"
       />
     </div>
   );
