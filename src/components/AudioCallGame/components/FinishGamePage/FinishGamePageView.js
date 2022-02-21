@@ -19,7 +19,7 @@ const FinishGamePageView = ({ errorAnswerArray, rightAnswerArray, handleClickNew
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(setAudiocallSequence(getRandomNum(2, 5)));
+    dispatch(setAudiocallSequence(getRandomNum(2, 5)));
     if (user) {
       for (let word of errorAnswerArray) {
         const userWord = {
