@@ -20,7 +20,8 @@
   --success: #52b345;
   --white: #fff;
   --font-dark: #222222;
-  --font-family-accent: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  --font-family-accent: "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
   /* --font-family-accent2: 'Noto Serif', serif; */
   --font-family-accent2: "Alice", serif;
 
@@ -122,9 +123,6 @@ a.active {
   color: var(--white);
   background-color: var(--accent-dark2);
   border: 2px solid transparent;
-
-  /* transition: all 0.5s;
-  transform: rotateX(-180deg); */
 }
 
 .btn-success {
@@ -233,5 +231,82 @@ a.active {
 /* ====== /examples ====== */
 
 /* ======= media ====== */
+@media (max-width: 1060px) {
+  body {
+    font-size: 16px;
+  }
+  .container {
+    max-width: 960px;
+    padding: 20px 20px;
+  }
+  .main__screen {
+    min-height: calc(100vh - 77px - 66px - 2px);
+  }
 
+  .btn {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+  .title-1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .title-2 {
+    font-size: 28px;
+  }
+  .title-3 {
+    font-size: 26px;
+  }
+  .title-4 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    font-size: 14px;
+  }
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 20px 20px;
+  }
+
+  .main__screen {
+    min-height: calc(100vh - 92px - 66px);
+  }
+  .btn {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  .container {
+    max-width: 540px;
+    padding: 15px 10px;
+  }
+  .main__screen {
+    min-height: calc(100vh - 82px - 66px);
+  }
+}
+
+/* ======= /media ====== */
+
+/* ======= media ====== */
+/* @media (max-width: 1060px) {
+  
+}
+
+@media (max-width: 800px) {
+  
+}
+
+@media (max-width: 767px) {
+  
+} */
 /* ======= /media ====== */

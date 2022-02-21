@@ -18,16 +18,16 @@
   color: var(--accent-p4321-1);
   font-family: var(--font-family-accent);
 }
-.logo:hover   {
+.logo:hover {
   color: inherit;
-  
+
   transition: 1s;
   transform: rotateX(-360deg);
 }
-.logo:hover span  {
+.logo:hover span {
   color: var(--accent-dark2);
 }
-.navigation{
+.navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,3 +36,32 @@
   margin: 0 8px;
 }
 
+/* ======= media ====== */
+@media (max-width: 1060px) {
+  .header__container {
+    padding: 15px 20px;
+  }
+  .logo {
+    font-size: 28px;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 800px) {
+  .logo {
+    font-size: 26px;
+  }
+  .navigation li {
+    margin: 0 6px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header__container {
+    padding: 10px 10px;
+  }
+  .logo {
+    font-size: 22px;
+  }
+}
+/* ======= /media ====== */
