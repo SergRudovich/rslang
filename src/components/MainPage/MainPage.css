@@ -1,4 +1,4 @@
-/* ====== main ====== */
+/* ====== main ====== */ 
 .main__row {
   display: flex;
   border-bottom: 2px dashed var(--accent-p4321-2);
@@ -20,7 +20,6 @@
 .benefits__title {
 }
 .benefits__list {
-  
 }
 .benefits__item {
   position: relative;
@@ -39,5 +38,38 @@
   margin: 0 15px;
   transform: rotate(-18deg);
 }
-
+.page__main .game-card__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+.page__main .game-card {
+  flex-direction: column-reverse;
+}
+.page__main .game-card__text {
+  border-bottom: none;
+}
 /* ====== /main ====== */
+/* ======= media ====== */
+@media (max-width: 1060px) {
+  
+}
+
+@media (max-width: 800px) {
+  
+  .main__title {
+    line-height: 0;
+    margin: 0 0 0 0;
+    visibility: hidden;
+  }
+  .main__image {
+    flex: 1 1 50%;
+}
+}
+
+@media (max-width: 767px) {
+
+}
+/* ======= /media ====== */
