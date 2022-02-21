@@ -38,6 +38,18 @@
   }
 }
 
+.textStartSelectors {
+  width: 80%;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 40px;
+  text-align: center;
+  @media (max-width: 720px) {
+    font-size: 1rem;
+  }
+}
+
+
 .form {
   display: flex;
   flex-direction: column;

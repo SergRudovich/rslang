@@ -5,7 +5,7 @@ import { CATEGORY_COLOR } from '../../../data/const';
 function SelectLevel({ handleSelectLevel }) {
 
   const [category, setCategory] = useState([
-    { id: 0, category: 'A1', isActive: false },
+    { id: 0, category: 'A1', isActive: true },
     { id: 1, category: 'A2', isActive: false },
     { id: 2, category: 'B1', isActive: false },
     { id: 3, category: 'B2', isActive: false },
