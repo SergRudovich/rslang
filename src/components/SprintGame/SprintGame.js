@@ -24,6 +24,8 @@ function SprintGame() {
   const from = searchParams.get('from');
 
   const handlePlayGame = () => {
+    correctWords = new Map();
+    wrongWords = new Map();
     setGame({ isPlay: true });
   }
 

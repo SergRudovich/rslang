@@ -1,17 +1,19 @@
 import './StartSprint.css';
 import React, { useState } from 'react';
 import SelectLevel from '../SelectLevel/SelectLevel';
-import { useDispatch } from "react-redux";
-import { getWords } from '../../../services/wordsService';
+import { useDispatch, useSelector } from "react-redux";
+import { getWords, getUserWords } from '../../../services/wordsService';
 import getRandomNum from '../../../helpers/getRandomNum';
 
 function StartSprint({ handlePlayGame, from }) {
 
   const [isDisabled, setIsDisabled] = useState(true);
+  const user = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   const handleSelectLevel = (level) => {
     dispatch(getWords(level, getRandomNum()));
+    if (user) dispatch(getUserWords(user.userId, user.token));
     setIsDisabled(false);
   }
 

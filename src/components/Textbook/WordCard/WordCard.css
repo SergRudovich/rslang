@@ -46,3 +46,46 @@
   font-size: 1rem;
   margin-top: 20px;
 }
+
+.wordcard-game-result__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.wordcard-game-result {
+  background-color: var(--accent-p4321-7);
+  width: 180px;
+  max-height: 150px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.wordcard-game-result span{
+  display: block;
+font-size: 1.2rem;
+font-weight: 600;
+text-align: center;
+color: var(--accent-p4321-1);
+}
+
+.wordcard-game-result p{
+margin-top: 10px;
+font-size: 1rem;
+}
+
+#wordcard__success{
+  display: inline;
+  font-weight: 600;
+color: var( --success);
+}
+
+#wordcard__error{
+  display: inline;
+  font-weight: 600;
+color: var( --danger);
+}

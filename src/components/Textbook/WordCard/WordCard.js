@@ -14,6 +14,7 @@ function WordCard(props) {
   const imgUrl = `${API_URL}/${word.image}`;
   const user = useSelector(state => state.user);
   const wordsCategory = useSelector(state => state.wordsCategory);
+  const userWords = useSelector(state => state.userWords);
   const dispatch = useDispatch();
   const [playAudio] = useSound(`${API_URL}/${word.audio}`, {
     interrupt: true,
@@ -24,6 +25,7 @@ function WordCard(props) {
   const [playAudioExample] = useSound(`${API_URL}/${word.audio}`, {
     interrupt: true,
   });
+  const userWord = userWords.find(item => item.wordId === word.id);
 
   useEffect(() => {
     return () => {
@@ -94,6 +96,28 @@ function WordCard(props) {
       <p className='word-card-textMeaning'>{word?.textMeaning}</p>
       <p className='word-card-textMeaning'>{word?.textMeaningTranslate}</p>
       <p className='word-card-textMeaning'>{word?.textExampleTranslate}</p>
+      {user &&
+        <div className='wordcard-game-result__container'>
+          <div className='wordcard-game-result'>
+            <span>Спринт</span>
+            {userWord &&
+              <>
+                <p>Правильно: <span id='wordcard__success'>{userWord.optional.sprint.yes}</span></p>
+                <p>Не правильно: <span id='wordcard__error'>{userWord.optional.sprint.no}</span></p>
+              </>
+            }
+          </div>
+          <div className='wordcard-game-result'>
+            <span>Аудиовызов</span>
+            {userWord &&
+              <>
+                <p>Правильно: <span id='wordcard__success'>{userWord.optional.audiocall.yes}</span></p>
+                <p>Не правильно: <span id='wordcard__error'>{userWord.optional.audiocall.no}</span></p>
+              </>
+            }
+          </div>
+        </div>
+      }
     </div>
   );
 }
