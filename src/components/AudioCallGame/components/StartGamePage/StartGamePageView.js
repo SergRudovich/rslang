@@ -52,8 +52,8 @@ const StartGamePageView = ({
       <div className="textStart">
         Тренировка улучшает восприятие английского на слух. Эта игра улучшает восприятие английского на слух. Выбери слово, которое было произнесено.
       </div>
-	  <div className="textStartSelectors">
-        Управление: <br/><strong>"Enter"</strong> - Повторить слово <br/> <strong>"Esc"</strong> - Не знаю, перейти к след. слову <br/> <strong>"1-5"</strong> Выбор варианта ответа      </div>
+      <div className="textStartSelectors">
+        Управление: <br /><strong>"Enter"</strong> - Повторить слово <br /> <strong>"Esc"</strong> - Не знаю, перейти к след. слову <br /> <strong>"1-5"</strong> Выбор варианта ответа      </div>
       {from === "menu" ? (
         <>
           <div className="sprint-start-label">

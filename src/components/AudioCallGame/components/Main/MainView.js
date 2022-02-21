@@ -30,7 +30,7 @@ const MainView = ({
       level={level}
       handleClickNewGame={handleClickNewGame}
       numberAnswers={numberAnswers}
-	  from={from}
+      from={from}
       isStart={isStart}
       numberLevel={numberLevel}
     />

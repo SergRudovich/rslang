@@ -2,7 +2,7 @@
 import './PlaySprint.css';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import { SPRINT_TIMER, MAX_WORDS_IN_PAGE } from '../../../data/const';
+import { SPRINT_TIMER, MAX_WORDS_IN_PAGE, wordStatus } from '../../../data/const';
 import getRandomNum from '../../../helpers/getRandomNum';
 
 let sequence = 0;
@@ -12,7 +12,7 @@ function PlaySprint(props) {
 
   const { getGameResult,
     setCorrectWord,
-    setWrongWord} = props;
+    setWrongWord } = props;
 
   const [gameCountY, setGameCountY] = useState(0);
   const [gameCountN, setGameCountN] = useState(0);
@@ -20,9 +20,11 @@ function PlaySprint(props) {
   const [isTrueAnswer, setIsTrueAnswer] = useState(false);
   const [translate, setTranslate] = useState('');
   const [word, setWord] = useState('');
-  const words = useSelector(state => state.words);
+  const wordsToPlay = useSelector(state => state.words);
+  const userWords = useSelector(state => state.userWords);
   const [timerValue, setTimerValue] = useState(SPRINT_TIMER);
   const [isWord, setIsWord] = useState(false);
+  const words = [...wordsToPlay];
 
   const getRundomWord = () => {
     const curr = words[getRandomNum(0, MAX_WORDS_IN_PAGE - 1)];
@@ -72,9 +74,9 @@ function PlaySprint(props) {
   }
 
   const no = () => {
-      sequence = 0;
-      setGameCountN(gameCountN => gameCountN + 1);
-      setWrongWord(currentWord);
+    sequence = 0;
+    setGameCountN(gameCountN => gameCountN + 1);
+    setWrongWord(currentWord);
   }
 
   function handleYes() {

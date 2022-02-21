@@ -12,6 +12,7 @@ const initialState = {
   wordsCategory: savedWordsCategory ? savedWordsCategory : 0,
   isSpinner: false,
   sprintSequence: 0,
+  audiocallSequence: 0,
 };
 
 const appReducer = (state = initialState, action) => {
@@ -66,6 +67,11 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         sprintSequence: (state.sprintSequence < payload) ? payload : state.sprintSequence,
+      };
+    case actions.SET_AUDIOCALL_SEQUENCE:
+      return {
+        ...state,
+        audiocallSequence: payload,
       };
     default:
       return state;
