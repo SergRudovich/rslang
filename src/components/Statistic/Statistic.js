@@ -9,6 +9,7 @@ function Statistic() {
 
   const dispatch = useDispatch();
   const sprintSequence = useSelector(state => state.sprintSequence);
+  const audiocallSequence = useSelector(state => state.audiocallSequence);
   const userWords = useSelector(state => state.userWords);
   const user = useSelector(state => state.user);
 
@@ -45,7 +46,7 @@ function Statistic() {
               <h3>Игра Аудиовызов:</h3>
               <p>Количество новых слов за день: <span>{audiocallNew}</span></p>
               <p>Процент правильных ответов: <span>{audiocallPersent}%</span></p>
-              <p>Самая длинная серия правильных ответов: <span>{0}</span></p>
+              <p>Самая длинная серия правильных ответов: <span>{audiocallSequence}</span></p>
             </div>
             <div>
               <h3>Статистика по словам</h3>

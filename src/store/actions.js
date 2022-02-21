@@ -49,3 +49,8 @@ export const setSprintSequence = (sequence) => ({
   type: actions.SET_SPRINT_SEQUENCE,
   payload: sequence,
 });
+
+export const setAudiocallSequence = (sequence) => ({
+  type: actions.SET_AUDIOCALL_SEQUENCE,
+  payload: sequence,
+});
