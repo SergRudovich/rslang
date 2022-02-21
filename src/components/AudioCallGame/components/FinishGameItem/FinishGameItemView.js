@@ -9,8 +9,8 @@ const FinishGameItemView = ({ word }) => {
   const audioElement = new Audio(getFilePath(word.audio));
   return (
     <div className='containerB'>
-      <IconButton aria-label="audio" onClick = {() => audioElement.play()}>
-        <VolumeUpRounded fontSize="large"/>
+      <IconButton aria-label="audio" onClick={() => audioElement.play()}>
+        <VolumeUpRounded fontSize="large" />
       </IconButton>
       <p className='text'>{word.word}</p>
     </div>

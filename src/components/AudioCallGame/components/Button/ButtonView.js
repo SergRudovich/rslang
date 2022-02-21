@@ -7,7 +7,7 @@ import "./ButtonView.css";
 const ButtonView = ({ isRightAnswer, handleClickButton, isFalseAnswer }) => {
   const { next, dontKnow } = text.ru.button;
   const buttonValue = isRightAnswer || isFalseAnswer ? next : dontKnow;
-  
+
 
   let elems = document.getElementsByClassName("btn-primary");
 

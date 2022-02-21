@@ -10,7 +10,7 @@ class Main extends React.Component {
       numberLevel: 5,
       numberAnswers: 5,
       isStart: false,
-	  from: "menu",
+      from: "menu",
     };
   }
 
@@ -32,11 +32,11 @@ class Main extends React.Component {
   handleSubmitForm = () => {
     this.setState({ isStart: true });
   }
-  
+
   setFrom = () => {
-	const [searchParams] = useSearchParams();
-	const from = searchParams.get('from');
-	this.setState({ from: +from });
+    const [searchParams] = useSearchParams();
+    const from = searchParams.get('from');
+    this.setState({ from: +from });
 
   }
 
@@ -49,7 +49,7 @@ class Main extends React.Component {
       levelAPI,
       numberAnswers,
       isStart,
-	  from,
+      from,
       numberLevel,
     } = this.state;
     return (
@@ -59,11 +59,11 @@ class Main extends React.Component {
         setNumberLevel={this.setNumberLevel}
         setNumberAnswers={this.setNumberAnswers}
         handleSubmitForm={this.handleSubmitForm}
-		setFrom={this.setFrom}
-        levelAPI={levelAPI} 
+        setFrom={this.setFrom}
+        levelAPI={levelAPI}
         numberAnswers={numberAnswers}
         isStart={isStart}
-		from={from}
+        from={from}
         numberLevel={numberLevel}
       />
     );

@@ -22,6 +22,9 @@ function StartSprint({ handlePlayGame, from }) {
       <div className='sprint-start-title'>Спринт</div>
       <div className='sprint-start-description'>Спринт - это игра на скорость. Необходимо правильно
         ответить на как можно большее количество вопросов за 30 секунд</div>
+      <div className='sprint-start-controls'>
+        Управление: <br /><strong>"Стрелка влево"</strong> - Правильно <br /> <strong>"Стрелка вправо"</strong> - Не правильно <br />
+      </div>
       {(from === 'menu') ? <>
         <div className='sprint-start-label'>Выберите уровень сложности слов</div>
         <SelectLevel handleSelectLevel={handleSelectLevel} />

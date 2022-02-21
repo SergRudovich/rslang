@@ -6,7 +6,7 @@
 .sprint-start-description {
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 40px;
+  margin: 20px;
   max-width: 1000px;
   text-align: center;
 }
@@ -20,4 +20,8 @@
 
 .sprint-start-btn {
   margin: 20px;
+}
+
+.sprint-start-controls {
+  text-align: center;
 }

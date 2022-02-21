@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { API_URL} from "../../../../data/const";
+import { API_URL } from "../../../../data/const";
 import data from '../../callGam';
 import GamePageView from "./GamePageView.js";
 import {

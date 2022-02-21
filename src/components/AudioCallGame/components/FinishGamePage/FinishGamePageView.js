@@ -6,30 +6,56 @@ import { text } from '../../../../data/const';
 
 import './FinishGamePageView.css';
 import FinishGameItem from '../FinishGameItem';
+import { useDispatch, useSelector } from "react-redux";
+import { createUserWord } from '../../../../services/wordsService';
+import { gameName } from '../../../../data/const';
 
 const FinishGamePageView = ({ errorAnswerArray, rightAnswerArray, handleClickNewGame }) => {
-  const generateItemsWords = (array) => (
-    array.length !== 0 && array.map((word) => (
-      <FinishGameItem
-        key={word.id}
-        word={word}
-      />
-    ))
-  );
+
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
+
+  const generateItemsWords = (array) => {
+    if (user) {
+      for (let word of errorAnswerArray) {
+        const userWord = {
+          game: gameName.audiocall,
+          yes: 1,
+        };
+        dispatch(createUserWord(user.userId, word.id, userWord, user.token));
+      }
+      for (let word of rightAnswerArray) {
+        const userWord = {
+          game: gameName.audiocall,
+          no: 1,
+        };
+        dispatch(createUserWord(user.userId, word.id, userWord, user.token));
+      }
+    }
+
+    return (
+      array.length !== 0 && array.map((word) => (
+        <FinishGameItem
+          key={word.id}
+          word={word}
+        />
+      ))
+    );
+  }
 
   return (
     <>
       <div className='containerC'>
         <div>
           <h2 className='title'>
-            { text.ru.answersCorrect }
+            {text.ru.answersCorrect}
             <span className='right'>{rightAnswerArray.length}</span>
           </h2>
           {generateItemsWords(rightAnswerArray)}
         </div>
         <div>
           <h2 className='title'>
-          { text.ru.answersMistaken }
+            {text.ru.answersMistaken}
             <span className='wrong'>{errorAnswerArray.length}</span>
           </h2>
           {generateItemsWords(errorAnswerArray)}
@@ -41,7 +67,7 @@ const FinishGamePageView = ({ errorAnswerArray, rightAnswerArray, handleClickNew
         onClick={() => handleClickNewGame()}
         className='button'
       >
-        { text.ru.button.newGame }
+        {text.ru.button.newGame}
       </Button>
     </>
   );

@@ -4,34 +4,31 @@
   align-items: center;
 }
 
-.btn-start{
-	background-color: #e48826;
+.btn-start {
+  background-color: #e48826;
 }
 
 .titleStart {
-	
-	margin-top: 30px;
-    font-size: 3rem;
-	font-weight: 900;
+  margin-top: 10px;
+  font-size: 3rem;
+  font-weight: 900;
 
   @media (max-width: 720px) {
     font-size: 3rem;
-	font-weight: 900;
+    font-weight: 900;
   }
 
   @media (max-width: 520px) {
     font-size: 1.4rem;
-	font-weight: 900;
+    font-weight: 900;
   }
 }
 
-
-  
 .textStart {
   width: 80%;
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 40px;
+  margin: 20px;
   text-align: center;
   @media (max-width: 720px) {
     font-size: 1rem;
@@ -42,19 +39,19 @@
   width: 80%;
   font-size: 1rem;
   font-weight: 500;
-  margin: 40px;
+  margin: 10px;
   text-align: center;
   @media (max-width: 720px) {
     font-size: 1rem;
   }
 }
 
-
 .form {
   display: flex;
   flex-direction: column;
   width: 40%;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 10px;
   @media (max-width: 720px) {
     width: 70%;
