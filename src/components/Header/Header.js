@@ -34,7 +34,7 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/audiocall" className="btn btn--dark">
+              <NavLink to="/audiocall?from=menu" className="btn btn--dark">
                 Игра «Аудиовызов»
               </NavLink>
             </li>
@@ -51,7 +51,9 @@ function Header() {
               Войти
             </NavLink>
           ) : (
-            <button className="btn btn--outline-light" onClick={handleLogout}>Выйти</button>
+            <button className="btn btn--outline-light" onClick={handleLogout}>
+              Выйти
+            </button>
           )}
         </div>
       </div>

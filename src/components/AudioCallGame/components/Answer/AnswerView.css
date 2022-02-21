@@ -1,0 +1,28 @@
+.item {
+  margin: 10px auto;
+  padding: 15px;
+  color: #1a1919;
+  font-size: 22px;
+  line-height: 1;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  
+}
+
+.item:hover {
+    background-color: #00000033;
+  }
+
+.disable {
+  color: #00000033;
+}
+.right {
+  color: #1a1919;
+  background: #a1f045b3;
+}
+
+.wrong {
+  color: #1a1919;
+  background: #f0576cb3;
+}

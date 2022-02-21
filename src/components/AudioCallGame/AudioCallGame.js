@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
+import Main from "./components/Main";
+import "./style.css";
 
 function AudioCallGame() {
   return (
-    <div>
-      <h1>AudioCallGame</h1>
+    <div className="audiocall-container">
+      <Main />
     </div>
   );
 }

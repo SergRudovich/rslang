@@ -1,0 +1,50 @@
+.containerF {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-start{
+	background-color: #e48826;
+}
+
+.titleStart {
+	
+	margin-top: 30px;
+    font-size: 3rem;
+	font-weight: 900;
+
+  @media (max-width: 720px) {
+    font-size: 3rem;
+	font-weight: 900;
+  }
+
+  @media (max-width: 520px) {
+    font-size: 1.4rem;
+	font-weight: 900;
+  }
+}
+
+
+  
+.textStart {
+  width: 80%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 40px;
+  text-align: center;
+  @media (max-width: 720px) {
+    font-size: 1rem;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-top: 40px;
+  padding: 10px;
+  @media (max-width: 720px) {
+    width: 70%;
+  }
+}
