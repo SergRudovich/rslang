@@ -3,6 +3,8 @@ RSS School task RS Lang
 
 https://github.com/rolling-scopes-school/tasks/blob/master/tasks/stage-2/rs-lang/rslang.md
 
+![screen](screen.png)
+
 ### Deploy
 * https://rs-lang-sergrudovich.netlify.app/
 
