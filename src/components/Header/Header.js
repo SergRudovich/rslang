@@ -51,7 +51,9 @@ function Header() {
               Войти
             </NavLink>
           ) : (
-            <button className="btn btn--outline-light" onClick={handleLogout}>Выйти</button>
+            <button className="btn btn--outline-light" onClick={handleLogout}>
+              Выйти
+            </button>
           )}
         </div>
       </div>
