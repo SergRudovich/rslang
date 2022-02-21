@@ -1,7 +1,6 @@
 // export const API_URL = 'https://react-learnwords-example.herokuapp.com';
 import soundError from '../assets/audio/error.mp3';
 import soundSuccess from '../assets/audio/success.mp3';
-
 export const API_URL = 'https://dreamteam-rs-lang.herokuapp.com';
 export const PASSWORD_RANGE = {min: 8, max: 40};
 export const USERNAME_RANGE = {min: 5, max: 20};
@@ -9,7 +8,6 @@ export const DIFFICULT_CATEGORY = 6;
 export const SPRINT_TIMER = 30;
 export const MAX_WORD_PAGES = 30;
 export const MAX_WORDS_IN_PAGE = 20;
-export const MAX_LEVEL = 12;
 export const ATTEMPTS_TO_LEARNED = 3;
 export const Http = {
   POST: 'POST',
@@ -28,10 +26,17 @@ export const gameName = {
   audiocall: 'audiocall',
 }
 
+export const FRONT_CARD = {
+  en: 'en',
+  ru: 'ru',
+  en_ru: 'en_ru'
+}
+
 export const CATEGORY_COLOR = ['#ecc8c9', '#c6a78f', '#a0b3a8', '#f7d8b6', '#ebb2cd', '#dcebb2', '#9999bb'];
 
 
 
+export const MAX_LEVEL = 12;
 
 
 export const text = {
@@ -70,12 +75,6 @@ const gamesData = {
   }
 };
 
-export const FRONT_CARD = {
-  en: 'en',
-  ru: 'ru',
-  en_ru: 'en_ru'
-}
-
 
 
 export {
@@ -84,4 +83,3 @@ export {
   gamesData,
   formLabel,
 };
-

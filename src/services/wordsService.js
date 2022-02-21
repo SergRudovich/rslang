@@ -1,22 +1,10 @@
-import { API_URL, Http, gameName } from "../data/const";
+import { API_URL, Http, gameName, wordStatus } from "../data/const";
 import {
   setWords,
   setUserWords,
   setUserFilteredWords,
 } from '../store/actions';
 import makeUserWord from "../helpers/makeUserWord";
-
-const getAll = () => async (dispatch) => {
-  const response = await fetch(`${API_URL}/words`, {
-    method: Http.GET,
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-  });
-  const words = await response.json();
-  dispatch(setWords(words));
-};
 
 const getWords = (category, page) => async (dispatch) => {
   const response = await fetch(`${API_URL}/words?group=${category}&page=${page}`, {
@@ -69,7 +57,7 @@ const createUserWord = (userId, wordId, word, token) => async (dispatch) => {
   const response = await getUserWord(userId, wordId, token);
   if (response.status === 404) {
     const userWord = {
-      difficulty: 'normal',
+      difficulty: wordStatus.normal,
       optional: {
         [gameName.sprint]: {
           new: '',
@@ -120,11 +108,25 @@ const deleteUserWord = (userId, wordId, token) => async (dispatch) => {
   dispatch(getUserWords(userId, token));
 };
 
+
+const getAll = () => async (dispatch) => {
+  const response = await fetch(`${API_URL}/words`, {
+    method: Http.GET,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+  });
+  const words = await response.json();
+  dispatch(setWords(words));
+};
+
+
 export {
   getWords,
-  getAll,
   createUserWord,
   getUserWords,
   getUserWordsFiltered,
   deleteUserWord,
+  getAll,
 };
